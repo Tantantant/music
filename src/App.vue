@@ -1,45 +1,31 @@
 <template>
-
   <div id="app">
-    <classSong></classSong>
+    <!-- <classSong></classSong> -->
 
-  <div class="appContainer">
     <TopList />
     <ModtopList />
-   
+
     <!-- <router-view></router-view> -->
 
+    <Header />
+    <Newdisc />
   </div>
 </template>
 
 <script>
+import Newdisc from "./views/Newdisc";
+import Header from "./components/header";
 
 import classSong from "./classSong";
 export default {
   name: "App",
   components: {
     classSong,
+    Newdisc,
+    Header,
   },
 };
 </script>
-
-<style></style>
-
-import TopList from "./views/topList";
-// import SongInfo from "./views/songInfo";
-import ModtopList from "./views/mod_topList";
-
-
-export default {
-  name: "App",
-  components: {
-    TopList,
-    ModtopList,
-    // SongInfo,
-   
-  },
-};
-</script >
 
 <style lang="stylus" scoped>
 html, body {

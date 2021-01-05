@@ -12,8 +12,8 @@ const router = new VueRouter({
     routes: [
         // 首页
         {
-            path:'/',  
-            component:ModTopList
+            path: '/',
+            component: ModTopList
         },
         {
             path: '/song',
