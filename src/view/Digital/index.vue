@@ -3,27 +3,80 @@
     <!-- <Carousel :carouselList="carouselList" /> -->
     <div class="digital-banner">
       <el-carousel class="digital-header" :interval="4000" type="card">
-        <el-carousel-item v-for="item in carouselList" :key="item.id">
-          <img :src="item.imgUrl" alt="" />
+        <el-carousel-item v-for="item in StyleProducts" :key="item.albumId">
+          <img :src="item.coverUrl" alt="" />
         </el-carousel-item>
       </el-carousel>
     </div>
-    <div class="digital-content" v-for="item in 4" :key="item">
+    <div class="product-content">
+      <span class="produc-title">最新上架</span>
+      <ProductsList :products="SaleProducts" />
+    </div>
+    <div class="product-content">
+      <h2 class="part__tit">华语数字专辑</h2>
+      <ProductsList :products="RankingProducts" />
+    </div>
+    <div class="product-content">
+      <h2 class="part__tit">人气飙升榜</h2>
+      <ProductsList :products="StyleProducts" />
+    </div>
+    <div class="product-content">
+      <h2 class="part__tit">音乐人专区</h2>
+      <ProductsList :products="StyleProducts" />
+    </div>
+
+    <!-- <ProductsList :products="SaleProducts" /> -->
+    <!-- <ProductsList :products="StyleProducts" /> -->\
+    <!-- 循环组件开始 -->
+    <!-- <div class="digital-content">
       <div class="digital-content-item">
         <h2 class="part__tit">最新上架</h2>
         <div class="mod_album_list">
-          <ul class="album_ul__list" v-for="item in 5" :key="item">
+          <ul
+            class="album_ul__list"
+            v-for="item in SaleProducts"
+            :key="item.albumId"
+          >
             <li class="album_li__item">
               <div class="img-wrapper">
-                <img src="./img/T002R300x300M000001p5Xyb2yi1Kf.jpg" alt="" />
+                <img :src="item.coverUrl" alt="" />
               </div>
-
               <span class="album_li__item-span"
-                ><a href="" class="name"> Anyone</a></span
+                ><a href="" class="name"> {{ item.albumName }}</a></span
               >
-              <span><a href=""> 贾斯汀比伯</a></span>
+              <span
+                ><a href=""> {{ item.artistName }}</a></span
+              >
               <div class="price">
-                <span>￥3</span>
+                <span>{{ item.price }}</span>
+                <button>立即购买</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="digital-content">
+      <div class="digital-content-item">
+        <h2 class="part__tit">数字专辑榜单</h2>
+        <div class="mod_album_list">
+          <ul
+            class="album_ul__list"
+            v-for="item in RankingProducts"
+            :key="item.albumId"
+          >
+            <li class="album_li__item">
+              <div class="img-wrapper">
+                <img :src="item.coverUrl" alt="" />
+              </div>
+              <span class="album_li__item-span"
+                ><a href="" class="name"> {{ item.albumName }}</a></span
+              >
+              <span
+                ><a href=""> {{ item.artistName }}</a></span
+              >
+              <div class="price">
+                <span>{{ item.price }}</span>
                 <button>立即购买</button>
               </div>
             </li>
@@ -31,36 +84,84 @@
         </div>
       </div>
     </div>
+    <div class="digital-content">
+      <div class="digital-content-item">
+        <h2 class="part__tit">日本专辑</h2>
+        <div class="mod_album_list">
+          <ul
+            class="album_ul__list"
+            v-for="item in StyleProducts"
+            :key="item.albumId"
+          >
+            <li class="album_li__item">
+              <div class="img-wrapper">
+                <img :src="item.coverUrl" alt="" />
+              </div>
+              <span class="album_li__item-span"
+                ><a href="" class="name"> {{ item.albumName }}</a></span
+              >
+              <span
+                ><a href=""> {{ item.artistName }}</a></span
+              >
+              <div class="price">
+                <span>{{ item.price }}</span>
+                <button>立即购买</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 // import Carousel from "../../components/Carousel";
-import { reqGetSaleComentList } from "../../api/digital";
+import ProductsList from "./coment/ProductsList";
+import {
+  reqGetSaleComentList,
+  reqGetStyleCometList,
+  reqGetRankingCometList,
+} from "../../api/digital";
+
 export default {
   components: {
     // Carousel,
+    ProductsList,
   },
   data() {
     return {
-      carouselList: [
-        { id: 1, imgUrl: require("./img/3401425.jpg") },
-        { id: 2, imgUrl: require("./img/3401425.jpg") },
-        { id: 3, imgUrl: require("./img/3401425.jpg") },
-        { id: 4, imgUrl: require("./img/3401425.jpg") },
-        { id: 5, imgUrl: require("./img/3401425.jpg") },
-      ],
+      allList: {},
+      SaleProducts: [],
+      RankingProducts: [],
+      StyleProducts: [],
     };
   },
   async mounted() {
-    let mvSaleList = await reqGetSaleComentList();
-    // mvSaleList =JSON.parse( mvSaleList.data;)
-    console.log(mvSaleList);
+    let SaleProducts = await reqGetSaleComentList();
+    let StyleProducts = await reqGetStyleCometList({ data: "JP" });
+    let RankingProducts = await reqGetRankingCometList();
+
+    this.SaleProducts = SaleProducts.products.slice(0, 5); //只需要前五条
+    this.StyleProducts = StyleProducts.albumProducts.slice(0, 5); //只需要前五条
+    this.RankingProducts = RankingProducts.products.slice(0, 5);
+    console.log(this.RankingProducts);
   },
 };
 </script>
 
 <style>
+.product-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.produc-title {
+  margin: 20px 10px 10px 10px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 58px;
+  text-align: center;
+}
 .digital-banner {
   background-color: #ddd;
 }
@@ -98,15 +199,9 @@ export default {
   color: #333;
   cursor: pointer;
 }
-.part__tit {
-  float: left;
-  margin-left: 20px;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 58px;
-}
+
 .digital-content-item {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
 }

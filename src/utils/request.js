@@ -15,11 +15,12 @@ instance.interceptors.response.use(
     (response) => {
         // 判断code === 200
         //如果等于返回数据
+
         console.log(response);
 
         if (response.status === 200) {
-            let allDatA = response.data
-            return JSON.parse(allDatA)
+
+            return response.data
         }
         // 错误提示
         // Message.error(message)
