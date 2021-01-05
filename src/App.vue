@@ -2,18 +2,16 @@
   <div id="app">
     <!-- <classSong></classSong> -->
 
-    <TopList />
-    <ModtopList />
-
-    <!-- <router-view></router-view> -->
+    <!-- <TopList />
+    <ModtopList /> -->
 
     <Header />
-    <Newdisc />
+    <!-- <Newdisc />
     <Digital />
-    <Singer />
+    <Singer /> -->
+    <router-view></router-view>
     <Footer />
     <!-- <Singerlist /> -->
-    <router-view></router-view>
   </div>
 </template>
 
@@ -21,7 +19,7 @@
 import Newdisc from "./views/Newdisc";
 import Header from "./components/header";
 import Digital from "./view/Digital";
-import "./styles/reset.css";
+// import "./styles/reset.css";
 
 import classSong from "./classSong";
 import Footer from './components/footer'

@@ -1,7 +1,7 @@
 
 
 // 引入iconfont样式
-import "./styles/iconfont.css";
+// import "./styles/iconfont.css";
 
 
 import Vue from 'vue'
