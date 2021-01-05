@@ -9,12 +9,15 @@
 
     <Header />
     <Newdisc />
+    <Digital />
   </div>
 </template>
 
 <script>
 import Newdisc from "./views/Newdisc";
 import Header from "./components/header";
+import Digital from "./view/Digital";
+import "./styles/reset.css";
 
 import classSong from "./classSong";
 export default {
@@ -23,6 +26,7 @@ export default {
     classSong,
     Newdisc,
     Header,
+    Digital,
   },
 };
 </script>

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Message } from 'element-ui';
 
+axios.defaults.timeout = 50000;//50s
 const instance = axios.create({
   baseURL: `/api`
   // Headers: {}
