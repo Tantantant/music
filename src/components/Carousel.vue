@@ -1,16 +1,21 @@
 <template>
-        <!-- 首页轮播列表 -->
-      <div class="swiper-container" ref="swiper">
-        <div class="swiper-wrapper">
-          <List />
-          <List />
-        </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
-        <!-- 如果需要导航按钮 -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+  <!-- 首页轮播列表 -->
+  <div class="swiper-container" ref="swiper">
+    <div class="swiper-wrapper">
+      <div
+        class="swiper-slide"
+        v-for="carousel in carouselList"
+        :key="carousel.id"
+      >
+        <img :src="carousel.imgUrl" />
       </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 </template>
 
 <script>
@@ -24,7 +29,12 @@ Swiper.use([Navigation, Pagination, Autoplay]);
 
 export default {
   name: "Carousel",
-  props: {},
+  props: {
+    carouselList: {
+      type: Array,
+      required: true,
+    },
+  },
   methods: {
     initSwiper() {
       new Swiper(".swiper-container", {
@@ -55,8 +65,9 @@ export default {
 };
 </script>
 
-<style>
-.swiper-list {
-  display: flex;
+<style scpoed>
+.swiper-slide img {
+  width: 100%;
+  height: auto;
 }
 </style>

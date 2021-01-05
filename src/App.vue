@@ -1,17 +1,17 @@
 <template>
-  <div id="home">
-    <Home />
+  <div>
+    <Digital />
   </div>
 </template>
 
 <script>
-import Home from "./view/Home/home";
+import Digital from "./view/Digital";
 import "./styles/reset.css";
 
 export default {
   name: "App",
   components: {
-    Home,
+    Digital,
   },
 };
 </script>

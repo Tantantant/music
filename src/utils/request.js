@@ -1,12 +1,11 @@
 // 封装axios拦截器
 import axios from 'axios';
-
+axios.defaults.timeout = 50000;//50s
 const instance = axios.create({
     baseURL: `/api`,
     // Headers: {}
 })
 instance.interceptors.request.use((config) => {
-
     return config
 })
 
@@ -16,20 +15,22 @@ instance.interceptors.response.use(
     (response) => {
         // 判断code === 200
         //如果等于返回数据
-        // console.log(response)
-        if (response.data.code === 200) {
-            return response.data.data
+        console.log(response);
+
+        if (response.status === 200) {
+            let allDatA = response.data
+            return JSON.parse(allDatA)
         }
         // 错误提示
-        Message.error(message)
+        // Message.error(message)
         // 功能失败 返回失败的Promise
-        return Promise.reject(message)
+        return Promise.reject(response.message)
     },
-    // 响应失败：响应状态码不是2开头
+    //响应失败：响应状态码不是2开头
     (error) => {
         const message = error.message || "网络错误"
         // 错误提示
-        Message.error(message)
+        // Message.error(message)
         return Promise.reject(message)
     }
 )
