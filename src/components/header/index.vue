@@ -59,7 +59,9 @@
         </el-row>
       </div>
       <div class="headerTopTail">
-        <a href="javascript:;" class="Signin">登录</a>
+        <a href="javascript:;" class="Signin" @click="$bus.$emit('login')"
+          >登录</a
+        >
         <div class="openingVip">
           <a href="javascript:;">开通VIP</a>
           <ul>
@@ -105,12 +107,18 @@
         <a href="javascript:;">票务</a>
       </li>
     </ul>
+    <Login />
   </div>
 </template>
 
 <script>
+import Login from "../../views/Login";
+
 export default {
   name: "Header",
+  components: {
+    Login,
+  },
 };
 </script>
 
