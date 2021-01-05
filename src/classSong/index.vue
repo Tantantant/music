@@ -335,6 +335,15 @@
 <script>
 export default {
   name: "classSong",
+  data() {
+    return {
+      songList: [],
+    };
+  },
+  mounted() {
+    console.log("hhh");
+    this.$store.dispatch("getSongList");
+  },
 };
 </script>
 
