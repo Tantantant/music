@@ -77,7 +77,7 @@
       </div>
     </div>
     <ul class="headerBottom">
-      <li>
+      <li class="home">
         <a href="javascript:;">首页</a>
       </li>
       <li>
@@ -352,8 +352,7 @@ export default {
     margin: 0 auto;
     height: 51px;
     line-height: 51px;
-    padding-left: 338px;
-    margin-right: -50px;
+    text-align: center;
 
     li {
       font-size: 15px;
@@ -368,6 +367,10 @@ export default {
           color: #31c27c !important;
         }
       }
+    }
+
+    .home {
+      padding-left: 228px;
     }
   }
 }

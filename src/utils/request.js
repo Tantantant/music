@@ -17,9 +17,9 @@ instance.interceptors.response.use(
 	(response) => {
 		// 判断code === 200
 		//如果等于返回数据
-		// console.log(response);
+		console.log(response);
 		if (response.status === 200) {
-			return response.data.response;
+			return response.data.albums;
 		}
 		const { message } = response.data;
 

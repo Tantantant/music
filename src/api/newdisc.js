@@ -7,10 +7,10 @@ export const getNewdiscNav = () => {
 	});
 };
 
-export const getNewdiscInland = ({ categoryId, page, limit }) => {
+export const getNewdiscInland = ({ area, limit, offset }) => {
 	return request({
 		method: 'GET',
-		url: `/getSongLists?${categoryId}&${page}&${limit}`
+		url: `/album/new?area=${area}&limit=${limit}&offset=${offset}`
 	});
 };
 

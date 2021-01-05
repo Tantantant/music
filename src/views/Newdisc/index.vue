@@ -1,15 +1,37 @@
 <template>
   <div class="newdiscContainer">
     <div class="navContainer">
-      <div
-        class="nav"
-        v-for="nav in navList"
-        :key="nav.id"
-        @click="switchNav(nav.id)"
-      >
-        <a href="javascript:;" :class="{ navactive: navId === nav.id }">{{
-          nav.name
-        }}</a>
+      <div class="nav" @click="switchNav">
+        <a
+          href="javascript:;"
+          data-area="ALL"
+          :class="{ navactive: area === 'ALL' }"
+          >全部</a
+        >
+        <a
+          href="javascript:;"
+          data-area="ZH"
+          :class="{ navactive: area === 'ZH' }"
+          >华语</a
+        >
+        <a
+          href="javascript:;"
+          data-area="EA"
+          :class="{ navactive: area === 'EA' }"
+          >欧美</a
+        >
+        <a
+          href="javascript:;"
+          data-area="KR"
+          :class="{ navactive: area === 'KR' }"
+          >韩国</a
+        >
+        <a
+          href="javascript:;"
+          data-area="JP"
+          :class="{ navactive: area === 'JP' }"
+          >日本</a
+        >
       </div>
     </div>
     <div class="contentContainer">
@@ -20,12 +42,12 @@
           :key="newDisc.id"
         >
           <div class="imgContainer">
-            <img :src="newDisc.imgurl" alt="歌曲图片" />
-            <i></i>
+            <img :src="newDisc.picUrl" alt="歌曲图片" />
+            <i class="playIcon"></i>
           </div>
-          <a href="javascript:;" class="songname">{{ newDisc.dissname }}</a>
+          <a href="javascript:;" class="songname">{{ newDisc.name }}</a>
           <a href="javascript:;" class="songauthor">{{
-            newDisc.creator.name
+            newDisc.artist.name
           }}</a>
           <span> {{ newDisc.createtime }} </span>
         </div>
@@ -35,8 +57,7 @@
         layout="prev, pager, next"
         :total="100"
         @current-change="handleCurrentChange"
-        :current-page="page"
-        :page-size="newDiscList.length"
+        :current-page="offset"
       >
       </el-pagination>
     </div>
@@ -44,66 +65,47 @@
 </template>
 
 <script>
-import { getNewdiscNav, getNewdiscInland } from "../../api/newdisc";
+import { getNewdiscInland } from "../../api/newdisc";
 
 export default {
   name: "Newdisc",
   data() {
     return {
       newDiscList: [],
-      navList: [],
-      total: 0,
-      navId: "",
-      page: 1,
+      area: "ALL",
+      offset: 1,
       limit: 20,
-      categoryId: 1000000,
     };
   },
   methods: {
-    switchNav(id) {
-      // console.log(id);
-      this.navId = id;
+    async switchNav(e) {
+      const area = e.target.getAttribute("data-area");
+      this.area = area;
+      await this.getNewdiscNavData(area, this.limit, this.offset);
     },
 
-    async handleCurrentChange(page) {
-      await this.getNewdiscNavData(page, this.limit, this.categoryId);
-      this.page = page;
+    async handleCurrentChange(offset) {
+      await this.getNewdiscNavData(this.area, this.limit, offset);
+      this.offset = offset;
     },
 
-    async getNewdiscNavData(page, limit, categoryId) {
-      const DiscInland = await getNewdiscInland({ page, limit, categoryId });
-      // console.log(DiscInland);
-      // this.total = DiscInland.total;
-      // let newDiscInland;
-      // if (page === 1) {
-      //   newDiscInland = DiscInland.list.slice(0, 20);
-      // } else if (page === 2) {
-      //   newDiscInland = DiscInland.list.slice(20, 40);
-      // } else if (page === 3) {
-      //   newDiscInland = DiscInland.list.slice(40, 60);
-      // } else if (page === 4) {
-      //   newDiscInland = DiscInland.list.slice(60, 80);
-      // } else if (page === 5) {
-      //   newDiscInland = DiscInland.list.slice(80, 100);
-      // }
+    async getNewdiscNavData(area, limit, offset) {
+      const DiscInland = await getNewdiscInland({ area, limit, offset });
 
-      this.newDiscList = DiscInland.data.list;
+      this.newDiscList = DiscInland;
     },
   },
 
   async mounted() {
-    const { page, limit, categoryId } = this;
-    let DiscNav = await getNewdiscNav();
-    await this.getNewdiscNavData({ categoryId, page, limit });
-    this.navList = DiscNav.new_album_tag.data.area;
-    this.navId = DiscNav.new_album_tag.data.area[0].id;
+    const { area, limit, offset } = this;
+    await this.getNewdiscNavData(area, limit, offset);
   },
 };
 </script>
 
 <style lang="stylus" scoped>
 .newdiscContainer {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 
   .navContainer {
@@ -155,11 +157,49 @@ export default {
       .imgContainer {
         margin-bottom: 15px;
         margin-right: 20px;
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:hover .playIcon {
+          opacity: 1;
+          -webkit-transition: 0.6s cubic-bezier(0, 1, 0.6, 1);
+          transition: transform 0.6s linear;
+          transform: scale(1.3);
+        }
+
+        &:hover img {
+          -webkit-transition: 0.6s linear;
+          transition: 0.6s linear;
+          transform: scale(1.1);
+        }
 
         img {
-          width: 224px;
-          height: 224px;
+          width: 100%;
+          height: 100%;
           border-radius: 5px;
+          -webkit-transition: 0.6s linear;
+          transition: 0.6s linear;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        .playIcon {
+          opacity: 0;
+          width: 49px;
+          height: 49px;
+          background-image: url('images/cover_play@2x.png');
+          background-size: 100% 100%;
+          position: absolute;
+          top: 50%;
+          margin-top: -25px;
+          left: 50%;
+          margin-left: -25px;
         }
       }
 
