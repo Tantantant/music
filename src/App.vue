@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="appContainer">
+    <TopList />
+    <ModtopList />
+   
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TopList from "./views/topList";
+// import SongInfo from "./views/songInfo";
+import ModtopList from "./views/mod_topList";
+
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
-</script>
+    TopList,
+    ModtopList,
+    // SongInfo,
+   
+  },
+};
+</script >
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="stylus" scoped>
+html, body {
+  background-color: #ededed;
+}
+
+.appContainer {
+  width: 1240px;
+  display: flex;
+  margin: 0 auto;
 }
 </style>

@@ -1,8 +1,24 @@
 import Vue from 'vue'
-import vueRouter from 'vue-router'
+import VueRouter from 'vue-router'
 
-Vue.use(vueRouter)
-const router = new vueRouter({
-    
+import Songinfo from '../views/songInfo'
+import ModTopList from '../views/mod_topList'
+
+
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+    mode: "history",  // history模式
+    routes: [
+        // 首页
+        {
+            path:'/',  
+            component:ModTopList
+        },
+        {
+            path: '/song',
+            component: Songinfo,
+        },
+    ]
 })
 export default router
