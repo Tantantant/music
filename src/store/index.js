@@ -1,3 +1,4 @@
+
 // 引入vue
 import Vue from "vue";
 // 引入vuex
@@ -24,3 +25,4 @@ export default new Vuex.Store({
   mutations, //总的mutations
   modules, // 其他多个子模块的数据
 });
+
