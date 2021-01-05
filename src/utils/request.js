@@ -18,8 +18,8 @@ instance.interceptors.response.use(
 		// 判断code === 200
 		//如果等于返回数据
 		// console.log(response);
-		if (response.data.status === 0) {
-			return response.data.data;
+		if (response.status === 200) {
+			return response.data.response;
 		}
 		const { message } = response.data;
 

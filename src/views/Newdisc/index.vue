@@ -17,23 +17,23 @@
         <div
           class="contentItem"
           v-for="newDisc in newDiscList"
-          :key="newDisc.album_id"
+          :key="newDisc.id"
         >
           <div class="imgContainer">
-            <img :src="newDisc.album_pic" alt="歌曲图片" />
+            <img :src="newDisc.imgurl" alt="歌曲图片" />
             <i></i>
           </div>
-          <a href="javascript:;" class="songname">{{ newDisc.song_title }}</a>
+          <a href="javascript:;" class="songname">{{ newDisc.dissname }}</a>
           <a href="javascript:;" class="songauthor">{{
-            newDisc.singers[0].name
+            newDisc.creator.name
           }}</a>
-          <span> {{ newDisc.time_public }} </span>
+          <span> {{ newDisc.createtime }} </span>
         </div>
       </div>
 
       <el-pagination
         layout="prev, pager, next"
-        :total="total"
+        :total="100"
         @current-change="handleCurrentChange"
         :current-page="page"
         :page-size="newDiscList.length"
@@ -55,6 +55,8 @@ export default {
       total: 0,
       navId: "",
       page: 1,
+      limit: 20,
+      categoryId: 1000000,
     };
   },
   methods: {
@@ -64,37 +66,37 @@ export default {
     },
 
     async handleCurrentChange(page) {
-      await this.getNewdiscNavData(page);
+      await this.getNewdiscNavData(page, this.limit, this.categoryId);
       this.page = page;
     },
 
-    async getNewdiscNavData(page) {
-      const DiscInland = await getNewdiscInland();
+    async getNewdiscNavData(page, limit, categoryId) {
+      const DiscInland = await getNewdiscInland({ page, limit, categoryId });
       // console.log(DiscInland);
-      this.total = DiscInland.total;
-      let newDiscInland;
-      if (page === 1) {
-        newDiscInland = DiscInland.list.slice(0, 20);
-      } else if (page === 2) {
-        newDiscInland = DiscInland.list.slice(20, 40);
-      } else if (page === 3) {
-        newDiscInland = DiscInland.list.slice(40, 60);
-      } else if (page === 4) {
-        newDiscInland = DiscInland.list.slice(60, 80);
-      } else if (page === 5) {
-        newDiscInland = DiscInland.list.slice(80, 100);
-      }
+      // this.total = DiscInland.total;
+      // let newDiscInland;
+      // if (page === 1) {
+      //   newDiscInland = DiscInland.list.slice(0, 20);
+      // } else if (page === 2) {
+      //   newDiscInland = DiscInland.list.slice(20, 40);
+      // } else if (page === 3) {
+      //   newDiscInland = DiscInland.list.slice(40, 60);
+      // } else if (page === 4) {
+      //   newDiscInland = DiscInland.list.slice(60, 80);
+      // } else if (page === 5) {
+      //   newDiscInland = DiscInland.list.slice(80, 100);
+      // }
 
-      this.newDiscList = newDiscInland;
+      this.newDiscList = DiscInland.data.list;
     },
   },
 
   async mounted() {
-    const DiscNav = await getNewdiscNav();
-
-    await this.getNewdiscNavData(1);
-    this.navList = DiscNav.tags.area;
-    this.navId = DiscNav.tags.area[0].id;
+    const { page, limit, categoryId } = this;
+    let DiscNav = await getNewdiscNav();
+    await this.getNewdiscNavData({ categoryId, page, limit });
+    this.navList = DiscNav.new_album_tag.data.area;
+    this.navId = DiscNav.new_album_tag.data.area[0].id;
   },
 };
 </script>
