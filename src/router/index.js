@@ -1,43 +1,37 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-
 import Songinfo from '../views/songInfo'
-import ModTopList from '../views/mod_topList'
-
-// const push = VueRouter.prototype.push
-// VueRouter.prototype.push = function (localtion, onComplate, onAbort) {
-//     if (onComplate, onAbort) {
-//         return push.call(this, localtion, onComplate, onAbort)
-//     }
-//     return push.call(this, localtion, onComplate, () => { })
-// }
-
-// Vue.use(VueRouter)
-
-// const router = new VueRouter({
-//     routes: [
-//         {
-//             path: "/song",
-//             component: Songinfo
-//         }
-//     ]
-// })
+import home from "../view/Home/home.vue"
+import Digital from "../view/Digital"
+import Singer from "../views/singer"
+import SingerList from "../views/singer-details"
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
     mode: "history",  // history模式
     routes: [
-        // 首页
         {
-            path:'/',  
-            component:ModTopList
+            path: "/",
+            component: home,
         },
         {
             path: '/song',
             component: Songinfo,
         },
+        {
+            path: "/mv_list",
+            component: Digital,
+        },
+        {
+            path: '/singer',
+            component: Singer
+        },
+        {
+            path: '/singerlist',
+            component: SingerList
+        }
     ]
 })
 export default router
