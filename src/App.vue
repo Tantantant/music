@@ -2,23 +2,24 @@
   <div class="appContainer">
     <TopList />
     <ModtopList />
-    <SongInfo>
-      <!-- <router-view></router-view> -->
-    </SongInfo>
+   
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
 <script>
 import TopList from "./views/topList";
-import SongInfo from "./views/songInfo";
+// import SongInfo from "./views/songInfo";
 import ModtopList from "./views/mod_topList";
+
 
 export default {
   name: "App",
   components: {
     TopList,
     ModtopList,
-    SongInfo,
+    // SongInfo,
+   
   },
 };
 </script >

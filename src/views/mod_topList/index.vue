@@ -4,7 +4,18 @@
     <div class="topList_header">
       <h1>流行指数榜</h1>
       <span>{{ songInfoList.updateTime }}</span>
-      <a href="###">榜单规则</a>
+      <!-- <a>榜单规则</a> -->
+      <el-popover
+        placement="bottom"
+        title="榜单规则"
+        width="200"
+        trigger="click"
+        content="QQ音乐内综合播放得分最高的100首单曲。
+          更新时间：每天
+          计算方式：综合播放得分对比七天前涨。"
+      >
+        <el-button slot="reference">榜单规则</el-button>
+      </el-popover>
     </div>
     <!-- 导航 -->
     <div class="mod_songlist_toolbar">
@@ -12,6 +23,7 @@
         ><i class="iconfont icon-bofang"></i>播放全部</a
       >
       <a href="###"><i class="iconfont icon-tianjia"></i>添加到</a>
+      
       <a
         ><i class="iconfont icon-46">
           <template>
@@ -20,9 +32,10 @@
         </i></a
       >
       <a @click="checkedAll"
-        ><i class="iconfont icon-piliangbianji"></i>批量操作</a
+        ><i class="iconfont icon-piliangbianji"></i
+        >{{ isChecked ? "取消批量操作" : "批量操作" }}</a
       >
-      <a href="###"><i class="iconfont icon-pinglun"></i>评论(6666)</a>
+      <a href="#1F"><i class="iconfont icon-pinglun"></i>评论(6666)</a>
     </div>
 
     <ul class="songList_header">
@@ -37,11 +50,22 @@
         v-for="(song, index) in songInfoList.song"
         :key="song.songId"
       >
-        <input type="checkbox" :checked="isChecked ? 'checked' : ''" :display="isChecked ? 'none' : 'block'" />
+        <input
+          type="checkbox"
+          :checked="isChecked ? 'checked' : ''"
+          :style="{ display: isChecked ? 'block' : 'none' }"
+        />
         <div class="fonts">
           <i class="iconfont icon-70BasicIcons-all-64"></i>
-          <i class="iconfont icon-tianjia"></i>
+          <i class="iconfont icon-tianjia" @click="add"></i>
+          <div class="add" :style="{ display: isShow ? 'block' : 'none' }">
+            <p>播放队列</p>
+            <p>登陆后添加歌单</p>
+          </div>
           <i class="iconfont icon-xiazai"></i>
+          <template>
+            <el-button type="text" @click="open"></el-button>
+          </template>
           <i class="iconfont icon-zhuanfa"></i>
         </div>
         <div class="songList_top">{{ index + 1 }}</div>
@@ -51,8 +75,8 @@
 
         <div class="songList_songInfo">
           <span class="songList_img">
-            <router-link to="/song"
-              ><img :src="songInfoList.musichallPicUrl" alt=""
+            <router-link to="/song">
+              <img :src="songInfoList.musichallPicUrl" alt=""
             /></router-link>
           </span>
 
@@ -67,15 +91,15 @@
       </li>
     </ul>
 
-    <div class="client_guide">
-      <p class="client_guide_text">查看更多内容,请下载客户端</p>
-      <a href="##" class="client_guide_btn">立即下载</a>
-    </div>
+    <Guide />
+    <Comment />
   </div>
 </template>
 
 <script>
 import { getToplist } from "../../api/topList";
+import Guide from "../../components/guide";
+import Comment from "../../components/comment";
 
 export default {
   name: "",
@@ -85,6 +109,7 @@ export default {
       songList: {},
       // imageList: {},
       isChecked: false,
+      isShow: false,
     };
   },
   async mounted() {
@@ -104,6 +129,10 @@ export default {
   },
 
   methods: {
+    add() {
+      this.isShow = !this.isShow;
+      console.log(this.isShow);
+    },
     open() {
       this.$confirm(
         " 下载歌曲需要在QQ音乐客户端操作!使用QQ音乐客户端获得高品质完整体验,   若您未安装QQ音乐客户端请先安装",
@@ -115,10 +144,14 @@ export default {
         }
       );
     },
+    // 批量
     checkedAll() {
       this.isChecked = !this.isChecked;
-      console.log(this.isChecked);
     },
+  },
+  components: {
+    Guide,
+    Comment,
   },
 };
 </script>
@@ -130,7 +163,35 @@ export default {
   padding: 0;
 }
 
+.add {
+  position: absolute;
+  left: 50px;
+  top: 40px;
+  width: 168px;
+  padding: 5px 0;
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgba(183, 183, 183, 0.65);
+  border: 1px solid #bfbfbf;
+  z-index: 10;
+  text-align: center;
+
+  p {
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+    line-height: 50px;
+  }
+
+  p:hover {
+    background-color: #31c27c;
+    color: #fff;
+  }
+}
+
 .songList_li {
+  position: relative;
+}
+
+.fonts {
   position: relative;
 }
 
@@ -313,28 +374,5 @@ export default {
 
 .songList_Time {
   width: 50px;
-}
-
-.client_guide {
-  height: 87px;
-  width: 100%;
-  text-align: center;
-}
-
-.client_guide .client_guide_text {
-  font-size: 18px;
-}
-
-.client_guide .client_guide_btn {
-  display: block;
-  margin: 20px auto 0;
-  width: 175px;
-  height: 41px;
-  line-height: 41px;
-  font-size: 16px;
-  color: #fff;
-  border-radius: 41px;
-  background-color: #31c27c;
-  text-decoration: none;
 }
 </style>
