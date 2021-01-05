@@ -2,11 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Songinfo from '../views/songInfo'
-import home from "../view/Home/home.vue"
-import Digital from "../view/Digital"
+import home from "../views/Home/home.vue"
+import Digital from "../views/Digital"
 import Singer from "../views/singer"
 import SingerList from "../views/singer-details"
-
+import TopList from '../views/mod_topList'
+import Newdisc from '../views/Newdisc'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -31,6 +32,14 @@ const router = new VueRouter({
         {
             path: '/singerlist',
             component: SingerList
+        },
+        {
+            path:'/toplist',
+            component:TopList
+        },
+        {
+            path:'/newdisc',
+            component:Newdisc
         }
     ]
 })

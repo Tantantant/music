@@ -3,13 +3,13 @@ import request from '../utils/request'
 export const getToplist = () => {
     return request({
         method: "GET",
-        url: "/getRanks"
+        url: "/toplist/detail"
     })
 }
 export const getTopDetail = () => {
     return request({
         method: "GET",
-        url: "/getTopLists"
+        url: "/artist/songs?id=6452"
     })
 }
 

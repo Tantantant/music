@@ -6,11 +6,11 @@
         <dd
           :class="isShow ? 'active' : ''"
           @click="handleSelect(index, $event)"
-          v-for="(list, index) in topList.topList"
+          v-for="(list, index) in topList"
           :key="list.id"
           :data-id="index"
         >
-          {{ list.topTitle }}
+          {{ list.name }}
         </dd>
         <!-- <dd>热歌榜</dd>
         <dd>新歌榜</dd>
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { getTopDetail } from "../../api/topList";
+import { getToplist } from "../../api/topList";
 export default {
   data() {
     return {
@@ -69,12 +69,12 @@ export default {
     };
   },
   async mounted() {
-    const res = await getTopDetail();
-
+    const res = await getToplist();
     // console.log("res", res);
-    if (res.response.code === 0) {
-      this.topList = res.response.data;
-      console.log("toplist", this.topList);
+    if (res.code === 200) {
+      // console.log(res.list)
+      this.topList = res.list;
+      // console.log("toplist", this.topList);
     }
   },
   methods: {

@@ -1,105 +1,108 @@
 <template>
   <!-- 头部 -->
   <div class="mod_Container">
-    <div class="topList_header">
-      <h1>流行指数榜</h1>
-      <span>{{ songInfoList.updateTime }}</span>
-      <!-- <a>榜单规则</a> -->
-      <el-popover
-        placement="bottom"
-        title="榜单规则"
-        width="200"
-        trigger="click"
-        content="QQ音乐内综合播放得分最高的100首单曲。
+    <TopList />
+    <div class="container">
+      <div class="topList_header">
+        <h1>流行指数榜</h1>
+        <span>{{ songInfoList.updateTime }}</span>
+        <!-- <a>榜单规则</a> -->
+        <el-popover
+          placement="bottom"
+          title="榜单规则"
+          width="200"
+          trigger="click"
+          content="QQ音乐内综合播放得分最高的100首单曲。
           更新时间：每天
           计算方式：综合播放得分对比七天前涨。"
-      >
-        <el-button slot="reference">榜单规则</el-button>
-      </el-popover>
-    </div>
-    <!-- 导航 -->
-    <div class="mod_songlist_toolbar">
-      <a class="btn_green" href="###"
-        ><i class="iconfont icon-bofang"></i>播放全部</a
-      >
-      <a href="###"><i class="iconfont icon-tianjia"></i>添加到</a>
-      
-      <a
-        ><i class="iconfont icon-46">
-          <template>
-            <el-button type="text" @click="open">下载</el-button>
-          </template>
-        </i></a
-      >
-      <a @click="checkedAll"
-        ><i class="iconfont icon-piliangbianji"></i
-        >{{ isChecked ? "取消批量操作" : "批量操作" }}</a
-      >
-      <a href="#1F"><i class="iconfont icon-pinglun"></i>评论(6666)</a>
-    </div>
+        >
+          <el-button slot="reference">榜单规则</el-button>
+        </el-popover>
+      </div>
+      <!-- 导航 -->
+      <div class="mod_songlist_toolbar">
+        <a class="btn_green" href="###"
+          ><i class="iconfont icon-bofang"></i>播放全部</a
+        >
+        <a href="###"><i class="iconfont icon-tianjia"></i>添加到</a>
 
-    <ul class="songList_header">
-      <li class="songName">歌曲</li>
-      <li class="songAuthor">歌手</li>
-      <li class="songTime">时长</li>
-    </ul>
+        <a
+          ><i class="iconfont icon-46">
+            <template>
+              <el-button type="text" @click="open">下载</el-button>
+            </template>
+          </i></a
+        >
+        <a @click="checkedAll"
+          ><i class="iconfont icon-piliangbianji"></i
+          >{{ isChecked ? "取消批量操作" : "批量操作" }}</a
+        >
+        <a href="#1F"><i class="iconfont icon-pinglun"></i>评论(6666)</a>
+      </div>
 
-    <ul class="songList_body">
-      <li
-        class="songList_li"
-        v-for="(song, index) in songInfoList.song"
-        :key="song.songId"
-      >
-        <input
-          type="checkbox"
-          :checked="isChecked ? 'checked' : ''"
-          :style="{ display: isChecked ? 'block' : 'none' }"
-        />
-        <div class="fonts">
-          <i class="iconfont icon-70BasicIcons-all-64"></i>
-          <i class="iconfont icon-tianjia" @click="add"></i>
-          <div class="add" :style="{ display: isShow ? 'block' : 'none' }">
-            <p>播放队列</p>
-            <p>登陆后添加歌单</p>
+      <ul class="songList_header">
+        <li class="songName">歌曲</li>
+        <li class="songAuthor">歌手</li>
+        <li class="songTime">时长</li>
+      </ul>
+
+      <ul class="songList_body">
+        <li
+          class="songList_li"
+          v-for="(song, index) in songInfoList"
+          :key="song.songId"
+        >
+          <input
+            type="checkbox"
+            :checked="isChecked ? 'checked' : ''"
+            :style="{ display: isChecked ? 'block' : 'none' }"
+          />
+          <div class="fonts">
+            <i class="iconfont icon-70BasicIcons-all-64"></i>
+            <i class="iconfont icon-tianjia" @click="add"></i>
+            <div class="add" :style="{ display: isShow ? 'block' : 'none' }">
+              <p>播放队列</p>
+              <p>登陆后添加歌单</p>
+            </div>
+            <i class="iconfont icon-xiazai"></i>
+            <template>
+              <el-button type="text" @click="open"></el-button>
+            </template>
+            <i class="iconfont icon-zhuanfa"></i>
           </div>
-          <i class="iconfont icon-xiazai"></i>
-          <template>
-            <el-button type="text" @click="open"></el-button>
-          </template>
-          <i class="iconfont icon-zhuanfa"></i>
-        </div>
-        <div class="songList_top">{{ index + 1 }}</div>
-        <div class="songList_shang">
-          <i class="iconfont icon--xiangshangjiantou"></i>{{ song.rankValue }}
-        </div>
+          <div class="songList_top">{{ index + 1 }}</div>
+          <div class="songList_shang">
+            <i class="iconfont icon--xiangshangjiantou"></i>{{ song.rankValue }}
+          </div>
 
-        <div class="songList_songInfo">
-          <span class="songList_img">
-            <router-link to="/song">
-              <img :src="songInfoList.musichallPicUrl" alt=""
-            /></router-link>
-          </span>
+          <div class="songList_songInfo">
+            <span class="songList_img">
+              <router-link to="/song">
+                <img :src="songInfoList.musichallPicUrl" alt=""
+              /></router-link>
+            </span>
 
-          <span class="songList_songName"
-            ><a href="##">{{ song.title }}</a></span
-          >
-        </div>
-        <div class="songList_Author">
-          <a href="##">{{ song.singerName }}</a>
-        </div>
-        <div class=" ">03:20</div>
-      </li>
-    </ul>
-
-    <Guide />
-    <Comment />
+            <span class="songList_songName"
+              ><a href="##">{{ song.name }}</a></span
+            >
+          </div>
+          <div class="songList_Author">
+            <a href="##">{{ song.ar[0].name }}</a>
+          </div>
+          <div class=" ">03:20</div>
+        </li>
+      </ul>
+      <Guide />
+      <Comment />
+    </div>
   </div>
 </template>
 
 <script>
-import { getToplist } from "../../api/topList";
+import { getTopDetail } from "../../api/topList";
 import Guide from "../../components/guide";
 import Comment from "../../components/comment";
+import TopList from "../topList";
 
 export default {
   name: "",
@@ -113,11 +116,10 @@ export default {
     };
   },
   async mounted() {
-    const res = await getToplist();
-    if (res.response.code === 0) {
-      // console.log(res.response.detail.data.data);
-      this.songInfoList = res.response.detail.data.data;
-      this.songInfoList.song.splice(0, 80);
+    const res = await getTopDetail();
+    if (res.code === 200) {
+      this.songInfoList = res.songs.splice(0, 20);
+      // this.songInfoList.song.splice(0, 80);
       console.log(this.songInfoList);
     }
 
@@ -152,6 +154,7 @@ export default {
   components: {
     Guide,
     Comment,
+    TopList,
   },
 };
 </script>
@@ -161,6 +164,11 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  width: 990px;
+  margin-left: 30px;
 }
 
 .add {
@@ -216,11 +224,15 @@ export default {
 }
 
 .mod_Container {
-  width: 990px;
+  width: 1200px;
   margin-left: 20px;
+  padding-top: 60px;
+  margin: 0 auto;
+  display: flex;
 }
 
 .topList_header {
+  display: flex;
   height: 64px;
   line-height: 64px;
   margin-bottom: 10px;
@@ -249,6 +261,10 @@ export default {
 .topList_header span {
   font-size: 14px;
   margin-right: 15px;
+}
+
+.mod_songlist_toolbar {
+  display: flex;
 }
 
 .mod_songlist_toolbar a {
@@ -287,6 +303,10 @@ export default {
 }
 
 .songList_header {
+  width: 868px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
   padding-left: 122px;
   height: 50px;
   line-height: 50px;

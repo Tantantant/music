@@ -1,10 +1,9 @@
-
 // 引入vue
 import Vue from "vue";
 // 引入vuex
 import Vuex from "vuex";
 // 引入modules模块
-import modules from "./modules";
+import modules from "./modules/classSong";
 // 声明使用vuex
 Vue.use(Vuex);
 

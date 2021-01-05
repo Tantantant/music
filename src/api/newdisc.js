@@ -14,6 +14,8 @@ export const getNewdiscInland = ({ categoryId, page, limit }) => {
 	});
 };
 
+
+
 // export const getNewdiscInland = () => {
 // 	return request({
 // 		method: 'GET',

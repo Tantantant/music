@@ -84,13 +84,13 @@
         <a href="javascript:;">歌手</a>
       </li>
       <li>
-        <a href="javascript:;">新碟</a>
+        <router-link to="/newdisc">新碟</router-link>
       </li>
       <li>
-        <a href="javascript:;">排行榜</a>
+        <router-link to='/toplist'>排行榜</router-link>
       </li>
       <li>
-        <a href="javascript:;">分类歌单</a>
+        <router-link to="">分类歌单</router-link>
       </li>
       <li>
         <a href="javascript:;">电台</a>
@@ -99,7 +99,7 @@
         <a href="javascript:;">MV</a>
       </li>
       <li>
-        <a href="javascript:;">数字专辑</a>
+        <router-link to="/mv_list">数字专辑</router-link>
       </li>
       <li>
         <a href="javascript:;">票务</a>

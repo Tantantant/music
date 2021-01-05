@@ -9,6 +9,7 @@
     <!-- <Newdisc />
     <Digital />
     <Singer /> -->
+    <Home></Home>
     <router-view></router-view>
     <Footer />
     <!-- <Singerlist /> -->
@@ -16,24 +17,27 @@
 </template>
 
 <script>
-import Newdisc from "./views/Newdisc";
+// import Newdisc from "./views/Newdisc";
 import Header from "./components/header";
-import Digital from "./view/Digital";
-// import "./styles/reset.css";
+// import Digital from "./views/Digital/index";
+import "./styles/reset.css";
+import Home from './views/Home/home'
 
-import classSong from "./classSong";
+// import classSong from "./classSong";
 import Footer from './components/footer'
-import Singer from './views/singer'
+// import Singer from './views/singer'
 // import Singerlist from './views/singer-details'
 export default {
   name: "App",
   components: {
-    classSong,
-    Newdisc,
+    // classSong,
+    // Newdisc,
     Header,
-    Digital,
-    Singer,
+    // Digital,
+    // Singer,
     Footer,
+    // Singerlist
+    Home
   },
 };
 </script>
