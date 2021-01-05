@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import Songinfo from '../views/songInfo'
 import home from "../view/Home/home.vue"
 import Digital from "../view/Digital"
+import Singer from "../views/singer"
+import SingerList from "../views/singer-details"
 
 Vue.use(VueRouter)
 
@@ -21,6 +23,14 @@ const router = new VueRouter({
         {
             path: "/mv_list",
             component: Digital,
+        },
+        {
+            path: '/singer',
+            component: Singer
+        },
+        {
+            path: '/singerlist',
+            component: SingerList
         }
     ]
 })

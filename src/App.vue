@@ -10,6 +10,10 @@
     <Header />
     <Newdisc />
     <Digital />
+    <Singer />
+    <Footer />
+    <!-- <Singerlist /> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -20,6 +24,9 @@ import Digital from "./view/Digital";
 import "./styles/reset.css";
 
 import classSong from "./classSong";
+import Footer from './components/footer'
+import Singer from './views/singer'
+// import Singerlist from './views/singer-details'
 export default {
   name: "App",
   components: {
@@ -27,6 +34,8 @@ export default {
     Newdisc,
     Header,
     Digital,
+    Singer,
+    Footer,
   },
 };
 </script>
