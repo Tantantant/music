@@ -9,8 +9,156 @@
       <div class="playList_tag">
         <div class="playList_item">
           <h3 class="playList_item_header">语种</h3>
+          <ul class="playList_item_content">
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                >更多</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="playList_item">
+          <h3 class="playList_item_header">语种</h3>
           <i class="playList_item_line"></i>
           <ul class="playList_item_content">
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                >更多</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="playList_item">
+          <h3 class="playList_item_header">语种</h3>
+          <i class="playList_item_line"></i>
+          <ul class="playList_item_content">
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                >更多</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="playList_item">
+          <h3 class="playList_item_header">语种</h3>
+          <i class="playList_item_line"></i>
+          <ul class="playList_item_content">
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                >更多</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="playList_item">
+          <h3 class="playList_item_header">语种</h3>
+          <i class="playList_item_line"></i>
+          <ul class="playList_item_content">
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
+            <li class="playList_item_box">
+              <a href="javascript:;">国语</a>
+            </li>
             <li class="playList_item_box">
               <a href="javascript:;">国语</a>
             </li>
@@ -55,7 +203,7 @@
               <div class="allSong_list_box">
                 <a href="javascript" class="a1">国风电音</a>
                 <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
+                <span>播放量: 208.8万</span>
               </div>
             </li>
             <li class="allSong_list_item">
@@ -210,24 +358,41 @@ a {
   margin: 0 auto;
 }
 .playList_tag {
-  width: 1200px;
-  height: 200px;
   display: flex;
+  width: 1200px;
+  height: 116px;
   margin: 0 auto;
+  padding: 60px 0 32px 0;
+}
+.playList_item {
+  width: 20%;
+  border-right: 1px solid #ccc;
+}
+.playList_item:last-child {
+  border-right: 0;
 }
 .playList_item h3 {
+  width: 160px;
   font-size: 14px;
   font-weight: 400;
   color: #999;
+  padding-left: 10px;
 }
 .playList_item ul {
   display: flex;
+  flex-wrap: wrap;
 }
 .playList_item li {
-  width: 20%;
+  width: 33.3333%;
+  margin: 8px 0;
   font-size: 14px;
 }
-
+.playList_item li a {
+  padding-left: 10px;
+}
+.playList_item li a:hover {
+  color: rgba(99, 233, 22, 0.856);
+}
 .allSong {
   overflow: hidden;
   width: 1200px;
@@ -247,7 +412,6 @@ a {
   float: right;
   width: 124px;
   height: 40px;
-  margin-right: 15px;
   border: 1px solid #31c27c;
   border-radius: 2px;
 }
@@ -283,6 +447,10 @@ a {
 .allSong_list_item a,
 span {
   display: block;
+  font-size: 14px;
+}
+.allSong_list_item .a1:hover {
+  color: #31c27c;
 }
 .songText span {
   display: block;
@@ -291,6 +459,7 @@ span {
   text-align: center;
   line-height: 20px;
   font-size: 18px;
+  color: black;
 }
 .allSong_list_item .a2,
 span {
@@ -304,6 +473,9 @@ span {
   line-height: 41px;
   background-color: #31c27c;
   border-radius: 41px;
+}
+.songText .songText_a:hover {
+  background-color: #327e59;
 }
 .songText .songText_a a {
   font-size: 16px;
