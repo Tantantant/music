@@ -1,13 +1,30 @@
 <template>
+
+  <div id="app">
+    <classSong></classSong>
+
   <div class="appContainer">
     <TopList />
     <ModtopList />
    
     <!-- <router-view></router-view> -->
+
   </div>
 </template>
 
 <script>
+
+import classSong from "./classSong";
+export default {
+  name: "App",
+  components: {
+    classSong,
+  },
+};
+</script>
+
+<style></style>
+
 import TopList from "./views/topList";
 // import SongInfo from "./views/songInfo";
 import ModtopList from "./views/mod_topList";
@@ -35,3 +52,4 @@ html, body {
   margin: 0 auto;
 }
 </style>
+

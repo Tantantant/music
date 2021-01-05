@@ -1,3 +1,9 @@
+
+
+// 引入iconfont样式
+import "./styles/iconfont.css";
+
+
 import Vue from 'vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -19,3 +25,4 @@ new Vue({
   router,
   store
 }).$mount('#app')
+
