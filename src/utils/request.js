@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Message } from 'element-ui';
 
+axios.defaults.timeout = 50000; //50s
 const instance = axios.create({
 	baseURL: `/api`
 	// Headers: {}
@@ -18,8 +19,8 @@ instance.interceptors.response.use(
 		// 判断code === 200
 		//如果等于返回数据
 		// console.log(response);
-		if (response.status === 200) {
-			return response.data.albums;
+		if (response.data.code === 200) {
+			return response.data;
 		}
 		const { message } = response.data;
 
@@ -30,7 +31,15 @@ instance.interceptors.response.use(
 	},
 	// 响应失败：响应状态码不是2开头
 	(error) => {
-		const message = error.message || '网络错误';
+		let message;
+		error = '' + error;
+		// console.log(error);
+		if (error.includes('501')) {
+			message = '账号不存在';
+		} else if (error.includes('509')) {
+			message = '密码错误';
+		}
+		// message = error.message || '网络错误';
 		// 错误提示
 		Message.error(message);
 		return Promise.reject(message);

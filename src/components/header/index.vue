@@ -51,6 +51,7 @@
             <el-autocomplete
               class="inline-input"
               placeholder="搜索音乐、MV、歌单、用户"
+              :fetch-suggestions="querySearch"
             ></el-autocomplete>
             <button class="search">
               <i class="iconfont icon-search"></i>
@@ -59,9 +60,26 @@
         </el-row>
       </div>
       <div class="headerTopTail">
-        <a href="javascript:;" class="Signin" @click="$bus.$emit('login')"
+        <a
+          href="javascript:;"
+          class="Signin"
+          @click="login"
+          v-if="!profile.nickname"
           >登录</a
         >
+        <div class="headPortrait" v-else>
+          <img :src="profile.avatarUrl" alt="头像" class="headPor" />
+          <img
+            src="//y.gtimg.cn/mediastyle/yqq/img/login_qq.png?max_age=2592000"
+            alt="图标"
+            class="qqicon"
+          />
+          <div class="headSelect">
+            <img :src="profile.avatarUrl" alt="headPor" class="headPorTwo" />
+            <span>{{ profile.nickname }}</span>
+            <div class="signLogin" @click="signLogin">退出登录</div>
+          </div>
+        </div>
         <div class="openingVip">
           <a href="javascript:;">开通VIP</a>
           <ul>
@@ -80,42 +98,88 @@
     </div>
     <ul class="headerBottom">
       <li class="home">
-        <a href="javascript:;">首页</a>
+        <router-link class="item" to="/">首页</router-link>
       </li>
       <li>
-        <a href="javascript:;">歌手</a>
+        <router-link class="item" to="/singer">歌手</router-link>
       </li>
       <li>
-        <a href="javascript:;">新碟</a>
+        <router-link class="item" to="/newdisc">新碟</router-link>
       </li>
       <li>
-        <a href="javascript:;">排行榜</a>
+        <a href="javascript:;" class="item">排行榜</a>
       </li>
       <li>
-        <a href="javascript:;">分类歌单</a>
+        <a href="javascript:;" class="item">分类歌单</a>
       </li>
       <li>
-        <a href="javascript:;">电台</a>
+        <a href="javascript:;" class="item">电台</a>
       </li>
       <li>
-        <a href="javascript:;">MV</a>
+        <a href="javascript:;" class="item">MV</a>
       </li>
       <li>
-        <a href="javascript:;">数字专辑</a>
+        <a href="javascript:;" class="item">数字专辑</a>
       </li>
       <li>
-        <a href="javascript:;">票务</a>
+        <a href="javascript:;" class="item">票务</a>
       </li>
     </ul>
-    <Login />
+    <Login v-if="isLogin" @close="close" />
   </div>
 </template>
 
 <script>
-import Login from "../../views/Login";
+import Login from "../Login";
+import { getSignLogin } from "../../api/login";
 
 export default {
   name: "Header",
+  data() {
+    return {
+      isLogin: false,
+      restaurants: [
+        { value: "我们的歌" },
+        { value: "冰雪奇缘2" },
+        { value: "张杰" },
+        { value: "桥边姑娘" },
+        { value: "星辰大海" },
+      ],
+      profile: {},
+    };
+  },
+  methods: {
+    //弹出登录页面
+    login() {
+      this.isLogin = true;
+    },
+    //关闭登录页面
+    close(profile = {}) {
+      this.profile = profile;
+      this.isLogin = false;
+    },
+    //退出登录
+    async signLogin() {
+      const result = await getSignLogin();
+      // console.log(result);
+      if (result.code === 200) {
+        this.profile = {};
+        this.$message.success("退出登录成功");
+        localStorage.removeItem("token");
+        localStorage.removeItem("profile");
+      }
+    },
+    querySearch(queryString, cb) {
+      cb(this.restaurants);
+    },
+  },
+  mounted() {
+    let token = localStorage.getItem("token");
+
+    if (token) {
+      this.profile = JSON.parse(localStorage.getItem("profile"));
+    }
+  },
   components: {
     Login,
   },
@@ -126,6 +190,7 @@ export default {
 .headerContainer {
   display: flex;
   flex-direction: column;
+  background-color: #fff;
 
   .headerTop {
     display: flex;
@@ -190,7 +255,7 @@ export default {
       }
     }
 
-    .headerTopInput {
+    /deep/.headerTopInput {
       border: 1px solid #c9c9c9;
       padding: 0 33px 0 11px;
       line-height: 36px;
@@ -214,7 +279,7 @@ export default {
         padding: 0px;
       }
 
-      .search {
+      /deep/.search {
         border: 0 none;
         width: 38px;
         height: 35px;
@@ -225,8 +290,9 @@ export default {
         left: 175px;
         font-size: 14px;
         color: #000;
+        outline: none;
 
-        &:hover {
+        /deep/&:hover {
           color: #31c27c;
         }
       }
@@ -238,6 +304,67 @@ export default {
       line-height: 90px;
       align-items: center;
       position: relative;
+
+      .headPortrait {
+        &:hover .headSelect {
+          display: block;
+        }
+
+        .headPor {
+          width: 38px;
+          height: 38px;
+          border-radius: 90px;
+          vertical-align: -14px;
+        }
+
+        .qqicon {
+          position: absolute;
+          width: 14px;
+          height: 14px;
+          bottom: 24px;
+          right: -2px;
+        }
+
+        .headSelect {
+          position: absolute;
+          top: 91px;
+          left: -18px;
+          width: 260px;
+          background-color: #fff;
+          border: 1px solid #f2f2f2;
+          height: 150px;
+          z-index: 5;
+          display: none;
+
+          .headPorTwo {
+            width: 66px;
+            height: 66px;
+            border-radius: 90px;
+            position: absolute;
+            top: 18px;
+            left: 18px;
+          }
+
+          .signLogin {
+            width: 100%;
+            height: 50px;
+            font-size: 16px;
+            position: absolute;
+            top: 91px;
+            left: -78px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+          }
+
+          span {
+            position: absolute;
+            top: 0;
+            left: 95px;
+            font-size: 14px;
+          }
+        }
+      }
 
       .Signin {
         font-size: 16px;
@@ -367,7 +494,7 @@ export default {
       color: #c1c1c1;
       margin-right: 47px;
 
-      a {
+      .item {
         color: #000;
         text-decoration: none;
 

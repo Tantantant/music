@@ -1,65 +1,68 @@
 <template>
-  <div class="newdiscContainer">
-    <div class="navContainer">
-      <div class="nav" @click="switchNav">
-        <a
-          href="javascript:;"
-          data-area="ALL"
-          :class="{ navactive: area === 'ALL' }"
-          >全部</a
-        >
-        <a
-          href="javascript:;"
-          data-area="ZH"
-          :class="{ navactive: area === 'ZH' }"
-          >华语</a
-        >
-        <a
-          href="javascript:;"
-          data-area="EA"
-          :class="{ navactive: area === 'EA' }"
-          >欧美</a
-        >
-        <a
-          href="javascript:;"
-          data-area="KR"
-          :class="{ navactive: area === 'KR' }"
-          >韩国</a
-        >
-        <a
-          href="javascript:;"
-          data-area="JP"
-          :class="{ navactive: area === 'JP' }"
-          >日本</a
-        >
-      </div>
-    </div>
-    <div class="contentContainer">
-      <div class="content">
-        <div
-          class="contentItem"
-          v-for="newDisc in newDiscList"
-          :key="newDisc.id"
-        >
-          <div class="imgContainer">
-            <img :src="newDisc.picUrl" alt="歌曲图片" />
-            <i class="playIcon"></i>
-          </div>
-          <a href="javascript:;" class="songname">{{ newDisc.name }}</a>
-          <a href="javascript:;" class="songauthor">{{
-            newDisc.artist.name
-          }}</a>
-          <span> {{ newDisc.createtime }} </span>
+  <div class="newdiscContainerBig">
+    <div class="newdiscContainer">
+      <div class="navContainer">
+        <div class="nav" @click="switchNav">
+          <a
+            href="javascript:;"
+            data-area="ALL"
+            :class="{ navactive: area === 'ALL' }"
+            >全部</a
+          >
+          <a
+            href="javascript:;"
+            data-area="ZH"
+            :class="{ navactive: area === 'ZH' }"
+            >华语</a
+          >
+          <a
+            href="javascript:;"
+            data-area="EA"
+            :class="{ navactive: area === 'EA' }"
+            >欧美</a
+          >
+          <a
+            href="javascript:;"
+            data-area="KR"
+            :class="{ navactive: area === 'KR' }"
+            >韩国</a
+          >
+          <a
+            href="javascript:;"
+            data-area="JP"
+            :class="{ navactive: area === 'JP' }"
+            >日本</a
+          >
         </div>
       </div>
+      <div class="contentContainer">
+        <div class="content">
+          <div
+            class="contentItem"
+            v-for="newDisc in newDiscList"
+            :key="newDisc.id"
+            @click="JumpSongInfo(newDisc.id)"
+          >
+            <div class="imgContainer">
+              <img :src="newDisc.picUrl" alt="歌曲图片" />
+              <i class="playIcon"></i>
+            </div>
+            <a href="javascript:;" class="songname">{{ newDisc.name }}</a>
+            <a href="javascript:;" class="songauthor">{{
+              newDisc.artist.name
+            }}</a>
+            <span> {{ newDisc.type }} </span>
+          </div>
+        </div>
 
-      <el-pagination
-        layout="prev, pager, next"
-        :total="100"
-        @current-change="handleCurrentChange"
-        :current-page="offset"
-      >
-      </el-pagination>
+        <el-pagination
+          layout="prev, pager, next"
+          :total="100"
+          @current-change="handleCurrentChange"
+          :current-page="offset"
+        >
+        </el-pagination>
+      </div>
     </div>
   </div>
 </template>
@@ -78,24 +81,34 @@ export default {
     };
   },
   methods: {
+    //点击导航栏切换，请求数据
     async switchNav(e) {
       const area = e.target.getAttribute("data-area");
       this.area = area;
       await this.getNewdiscNavData(area, this.limit, this.offset);
     },
-
+    //点击页数，请求数据
     async handleCurrentChange(offset) {
       await this.getNewdiscNavData(this.area, this.limit, offset);
       this.offset = offset;
     },
-
+    //发送请求的函数
     async getNewdiscNavData(area, limit, offset) {
       const DiscInland = await getNewdiscInland({ area, limit, offset });
 
-      this.newDiscList = DiscInland;
+      this.newDiscList = DiscInland.albums;
+    },
+    //跳转到SongInfo
+    JumpSongInfo(id) {
+      this.$router.push("/songinfo");
+
+      this.$store.commit("NEWDISC_SONGINFO", {
+        newDiscList: this.newDiscList,
+        id,
+      });
     },
   },
-
+  //一上来就发送请求
   async mounted() {
     const { area, limit, offset } = this;
     await this.getNewdiscNavData(area, limit, offset);
@@ -104,14 +117,21 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.newdiscContainerBig {
+  height: 100%;
+  background-color: #f2f2f2;
+  padding-bottom: 1px;
+}
+
 .newdiscContainer {
   max-width: 1200px;
   margin: 0 auto;
 
   .navContainer {
     display: flex;
-    margin-top: 52px;
+    padding-top: 52px;
     padding-left: 65px;
+    background-color: #f2f2f2;
 
     .nav {
       height: 41px;
@@ -242,11 +262,16 @@ export default {
       height: 50px;
       width: 50px;
       color: #a2a2a2;
+      background-color: #f2f2f2;
 
       &:hover {
         color: #fff;
         background-color: #31c27c;
       }
+    }
+
+    >>>.btn-prev {
+      background-color: #f2f2f2;
     }
 
     >>>button {
@@ -272,6 +297,7 @@ export default {
         height: 50px;
         width: 50px;
         color: #a2a2a2;
+        background-color: #f2f2f2;
 
         &:hover {
           color: #fff;
