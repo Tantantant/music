@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 头部 -->
-    <Header />
+    <!-- <Header /> -->
 
     <!-- 内容区 -->
     <div class="center">
@@ -231,21 +231,16 @@
     </div>
 
     <!-- 底部 -->
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
-import Header from "../components/header";
-import Footer from "../components/footer";
 // 引入辅助函数
 import { mapState } from "vuex";
 export default {
   name: "classSong",
-  components: {
-    Header,
-    Footer,
-  },
+  components: {},
   mounted() {
     this.$store.dispatch("getSongList");
   },

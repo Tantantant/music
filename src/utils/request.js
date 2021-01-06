@@ -1,12 +1,8 @@
 // 封装axios拦截器
-import axios from 'axios';
+import axios from "axios";
 
-import { Message } from 'element-ui';
-
-axios.defaults.timeout = 50000;//50s
 const instance = axios.create({
-  baseURL: `/api`
-  // Headers: {}
+  baseURL: `/api`,
 });
 instance.interceptors.request.use((config) => {
   return config;
@@ -24,6 +20,4 @@ instance.interceptors.response.use(
   }
 );
 
-
-
-export default instance
+export default instance;
