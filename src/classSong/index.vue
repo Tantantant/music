@@ -1,348 +1,258 @@
 <template>
   <div>
     <!-- 头部 -->
-    <div class="header"></div>
+    <Header />
 
     <!-- 内容区 -->
-    <div class="content">
-      <!-- 筛选标签 -->
-      <div class="playList_tag">
-        <div class="playList_item">
-          <h3 class="playList_item_header">语种</h3>
-          <ul class="playList_item_content">
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
-                >更多</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="playList_item">
-          <h3 class="playList_item_header">语种</h3>
-          <i class="playList_item_line"></i>
-          <ul class="playList_item_content">
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
-                >更多</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="playList_item">
-          <h3 class="playList_item_header">语种</h3>
-          <i class="playList_item_line"></i>
-          <ul class="playList_item_content">
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
-                >更多</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="playList_item">
-          <h3 class="playList_item_header">语种</h3>
-          <i class="playList_item_line"></i>
-          <ul class="playList_item_content">
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
-                >更多</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="playList_item">
-          <h3 class="playList_item_header">语种</h3>
-          <i class="playList_item_line"></i>
-          <ul class="playList_item_content">
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;">国语</a>
-            </li>
-            <li class="playList_item_box">
-              <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
-                >更多</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 全部歌单 -->
-      <div class="allSong">
-        <div class="allSong_header">
-          <h2>全部歌单</h2>
-          <div class="allSong_new">
-            <a href="javascript:;" class="active">推荐</a>
-            <a href="javascript:;">最新</a>
+    <div class="center">
+      <div class="content">
+        <!-- 筛选标签 -->
+        <div class="playList_tag">
+          <div class="playList_item">
+            <h3 class="playList_item_header">语种</h3>
+            <ul class="playList_item_content">
+              <li class="playList_item_box">
+                <a href="javascript:;" class="active">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                  >更多</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="playList_item">
+            <h3 class="playList_item_header">语种</h3>
+            <i class="playList_item_line"></i>
+            <ul class="playList_item_content">
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                  >更多</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="playList_item">
+            <h3 class="playList_item_header">语种</h3>
+            <i class="playList_item_line"></i>
+            <ul class="playList_item_content">
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                  >更多</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="playList_item">
+            <h3 class="playList_item_header">语种</h3>
+            <i class="playList_item_line"></i>
+            <ul class="playList_item_content">
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                  >更多</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="playList_item">
+            <h3 class="playList_item_header">语种</h3>
+            <i class="playList_item_line"></i>
+            <ul class="playList_item_content">
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">国语</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
+                  >更多</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="allSong_list">
-          <ul>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量: 208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-            <li class="allSong_list_item">
-              <div class="allSong_list_img">
-                <a href="javascript:;">
-                  <img src="../assets/images/300.jpg" alt="" />
-                </a>
-              </div>
-              <div class="allSong_list_box">
-                <a href="javascript" class="a1">国风电音</a>
-                <a href="javascript" class="a2">鹿尔</a>
-                <span>播放量:208.8万</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- 下载区 -->
-      <div class="songText">
-        <span>查看更多内容，请下载客户端</span>
-        <div class="songText_a">
-          <a href="javascript:;">立即下载</a>
+        <!-- 全部歌单 -->
+        <div class="allSong">
+          <div class="allSong_header">
+            <h2>全部歌单</h2>
+            <div class="allSong_new">
+              <a href="javascript:;" class="active">推荐</a>
+              <a href="javascript:;">最新</a>
+            </div>
+          </div>
+          <div class="allSong_list">
+            <ul>
+              <li
+                class="allSong_list_item"
+                v-for="item in songList"
+                :key="item.id"
+              >
+                <div class="allSong_list_img">
+                  <a href="javascript:;">
+                    <img :src="item.imgurl" alt="" />
+                  </a>
+                  <i>
+                    <!-- <img src="../assets/images/cover_play@2x.png" alt="" /> -->
+                  </i>
+                </div>
+                <div class="allSong_list_box">
+                  <a href="javascript" class="a1">{{ item.dissname }}</a>
+                  <a href="javascript" class="a2">{{ item.name }}</a>
+                  <span
+                    >播放量: {{ (item.listennum / 10000).toFixed(1) }}万</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 下载区 -->
+        <div class="songText">
+          <span>查看更多内容，请下载客户端</span>
+          <div class="songText_a">
+            <a href="javascript:;">立即下载</a>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 底部 -->
-    <div class="foot"></div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from "../components/header";
+import Footer from "../components/footer";
+// 引入辅助函数
+import { mapState } from "vuex";
 export default {
   name: "classSong",
-  data() {
-    return {
-      songList: [],
-    };
+  components: {
+    Header,
+    Footer,
   },
   mounted() {
-    console.log("hhh");
     this.$store.dispatch("getSongList");
+  },
+  computed: {
+    ...mapState({
+      songList: (state) => state.classSong.songList,
+    }),
   },
 };
 </script>
@@ -357,10 +267,9 @@ a {
   text-decoration: none;
   color: #333;
 }
-.header {
+.center {
   width: 100%;
-  height: 142px;
-  background-color: red;
+  background-color: rgb(240, 240, 240);
 }
 .content {
   width: 1200px;
@@ -375,7 +284,7 @@ a {
 }
 .playList_item {
   width: 20%;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid rgb(204, 204, 204);
 }
 .playList_item:last-child {
   border-right: 0;
@@ -397,10 +306,19 @@ a {
   font-size: 14px;
 }
 .playList_item li a {
-  padding-left: 10px;
+  padding: 2px 8px;
+  margin-left: 10px;
+  text-align: center;
+}
+.playList_item li .active {
+  color: #fff;
+  background-color: #31c27c;
 }
 .playList_item li a:hover {
   color: rgba(99, 233, 22, 0.856);
+}
+.playList_item li .active:hover {
+  color: #fff;
 }
 .allSong {
   overflow: hidden;
@@ -448,10 +366,25 @@ a {
   width: 224px;
   height: 224px;
   margin-bottom: 15px;
+  position: relative;
 }
 .allSong_list_img img {
   width: 224px;
   height: 224px;
+}
+.allSong_list_img i {
+  opacity: 0;
+  width: 49px;
+  height: 49px;
+  background-image: url("../assets/images/cover_play@2x.png");
+  background-size: contain;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+}
+.allSong_list_img:hover i {
+  opacity: 1;
+  transition: opacity 0.4s linear;
 }
 .allSong_list_item a,
 span {
@@ -489,10 +422,5 @@ span {
 .songText .songText_a a {
   font-size: 16px;
   color: #fff;
-}
-.foot {
-  width: 100%;
-  height: 500px;
-  background-color: #333;
 }
 </style>

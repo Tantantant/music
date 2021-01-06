@@ -7,9 +7,10 @@ export default {
   actions: {
     async getSongList({ commit }) {
       const result = await reqSongList();
-      if (result.code === 200) {
-        commit("RECEIVE_SONG_LIST", result.data);
-      }
+      // if (result.code === 200) {
+      //   commit("RECEIVE_SONG_LIST", result.data);
+      // }
+      commit("RECEIVE_SONG_LIST", result);
     },
   },
   mutations: {

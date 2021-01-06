@@ -1,4 +1,7 @@
-
+import Vue from "vue";
+import App from "./App.vue";
+// 引入store----vuex状态管理
+import store from "./store";
 
 // 引入iconfont样式
 // import "./styles/iconfont.css";
@@ -22,8 +25,7 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
-  router,
-  store
-}).$mount('#app')
-
+  render: (h) => h(App),
+  // 注册store仓库
+  store,
+}).$mount("#app");

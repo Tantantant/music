@@ -114,11 +114,15 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="less" scoped>
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .headerContainer {
   display: flex;
   flex-direction: column;
-
   .headerTop {
     display: flex;
     width: 1200px;
@@ -141,7 +145,6 @@ export default {
         line-height: 90px;
         height: 90px;
         position: relative;
-
         a {
           display: block;
           padding: 0 20px;
@@ -150,22 +153,18 @@ export default {
           font-size: 18px;
           text-decoration: none;
           color: #000;
-
           &.SelectbackColor {
             background-color: #31c27c;
             color: #fff !important;
-
             &:hover {
               color: #fff !important;
             }
           }
-
           &:hover {
             color: #31c27c !important;
             text-decoration: none;
           }
         }
-
         .privilege {
           position: absolute;
           height: 14px;
@@ -173,15 +172,10 @@ export default {
           left: 58px;
         }
       }
-
       .platform {
         margin-left: -13px;
       }
-
-      .dropDown {
-      }
     }
-
     .headerTopInput {
       border: 1px solid #c9c9c9;
       padding: 0 33px 0 11px;
@@ -192,11 +186,9 @@ export default {
       background-color: #fff;
       position: relative;
       margin-right: 20px;
-
       /deep/.el-row {
         width: 173px;
       }
-
       /deep/.el-input__inner {
         width: 190px;
         height: 36px;
@@ -205,7 +197,6 @@ export default {
         background: 0 0;
         padding: 0px;
       }
-
       .search {
         border: 0 none;
         width: 38px;
@@ -217,20 +208,17 @@ export default {
         left: 175px;
         font-size: 14px;
         color: #000;
-
         &:hover {
           color: #31c27c;
         }
       }
     }
-
     .headerTopTail {
       display: flex;
       height: 90px;
       line-height: 90px;
       align-items: center;
       position: relative;
-
       .Signin {
         font-size: 16px;
         width: 38px;
@@ -238,12 +226,10 @@ export default {
         text-align: center;
         color: #000;
         text-decoration: none;
-
         &:hover {
           color: #31c27c !important;
         }
       }
-
       .openingVip {
         height: 120px;
         font-size: 13px;
@@ -251,11 +237,9 @@ export default {
         position: absolute;
         top: 25px;
         right: -126px;
-
         &:hover ul {
           display: block;
         }
-
         a {
           display: block;
           background-color: #31c27c;
@@ -267,17 +251,14 @@ export default {
           white-space: nowrap;
           border: 1px solid #c9c9c9;
           border-radius: 3px;
-
           &:hover {
             color: #fff !important;
             text-decoration: none;
           }
         }
-
         ul {
           height: 80px;
           display: none;
-
           li {
             line-height: 40px;
             cursor: pointer;
@@ -285,7 +266,6 @@ export default {
             white-space: nowrap;
             border: 1px solid #c9c9c9;
             background-color: #fff;
-
             &:hover {
               background-color: #31c27c;
               color: #fff;
@@ -293,7 +273,6 @@ export default {
           }
         }
       }
-
       .Recharge {
         width: 83px;
         margin-left: 10px;
@@ -302,11 +281,9 @@ export default {
         position: absolute;
         top: 26px;
         right: -220px;
-
         &:hover ul {
           display: block;
         }
-
         a {
           display: block;
           line-height: 36px;
@@ -317,17 +294,14 @@ export default {
           border-radius: 3px;
           text-decoration: none;
           color: #666;
-
           &:hover {
             background-color: #31c27c;
             color: #fff !important;
           }
         }
-
         ul {
           height: 80px;
           display: none;
-
           li {
             line-height: 40px;
             cursor: pointer;
@@ -335,7 +309,6 @@ export default {
             white-space: nowrap;
             border: 1px solid #c9c9c9;
             background-color: #fff;
-
             &:hover {
               background-color: #31c27c;
               color: #fff;
@@ -345,7 +318,6 @@ export default {
       }
     }
   }
-
   .headerBottom {
     display: flex;
     width: 1200px;
@@ -354,16 +326,13 @@ export default {
     line-height: 51px;
     padding-left: 338px;
     margin-right: -50px;
-
     li {
       font-size: 15px;
       color: #c1c1c1;
       margin-right: 47px;
-
       a {
         color: #000;
         text-decoration: none;
-
         &:hover {
           color: #31c27c !important;
         }
