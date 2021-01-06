@@ -21,15 +21,33 @@ export const reqGetSaleComentList = () => {
     })
 }
 //获取数字专辑榜单列表
-// export const reqGetRankingCometList = ({ type = "year", year = 2020, albumType = 0 }) => {
-//     return request({
-//         url: `/album_songsaleboard?type =${{ type }}&year =${{ year }}&albumType = ${{ albumType }}`,
-//         method: "GET",
-//     })
-// };
 export const reqGetRankingCometList = () => {
     return request({
         url: `http://localhost:3000/album/songsaleboard?type=year&year=2020&albumType=0`,
+        method: "GET",
+    })
+};
+//获取数字专辑详细信息 /artist/top/song?id=6452
+export const reqGetRankingDetail = (id) => {
+    console.log(id);
+    return request({
+        url: `/album/detail?id=${id}`,
+        method: "GET",
+    })
+};
+//获取歌手的歌曲列表
+export const reqGetSongerList = (id) => {
+    console.log(id);
+    return request({
+        url: `artist/top/song?id=${id}`,
+        method: "GET",
+    })
+};
+//获取歌手的歌曲列表前50名
+export const reqGetSongerListTop = (id) => {
+    console.log(id);
+    return request({
+        url: `artist/top/song?id=${id}`,
         method: "GET",
     })
 };
@@ -42,3 +60,4 @@ export const reqGetStyleCometList = ({ data = "Z_H" }) => {
         method: "GET",
     })
 };
+

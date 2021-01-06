@@ -4,14 +4,22 @@
       <div class="mod_album_list">
         <ul class="album_ul__list" v-for="item in products" :key="item.albumId">
           <li class="album_li__item">
-            <div class="img-wrapper">
+            <router-link
+              class="img-wrapper"
+              :to="{ path: '/productsDetail', query: { id: item.albumId } }"
+            >
               <img :src="item.coverUrl" alt="" />
-            </div>
+            </router-link>
             <span class="album_li__item-span"
-              ><a href="" class="name"> {{ item.albumName }}</a></span
+              ><router-link
+                :to="{ path: '/productsDetail', query: { id: item.albumId } }"
+                class="name"
+              >
+                {{ item.albumName }}</router-link
+              ></span
             >
             <span
-              ><a href=""> {{ item.artistName }}</a></span
+              ><a> {{ item.artistName }}</a></span
             >
             <div class="price">
               <span>{{ item.price }}</span>

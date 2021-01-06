@@ -24,100 +24,14 @@
       <h2 class="part__tit">音乐人专区</h2>
       <ProductsList :products="StyleProducts" />
     </div>
-
-    <!-- <ProductsList :products="SaleProducts" /> -->
-    <!-- <ProductsList :products="StyleProducts" /> -->\
-    <!-- 循环组件开始 -->
-    <!-- <div class="digital-content">
-      <div class="digital-content-item">
-        <h2 class="part__tit">最新上架</h2>
-        <div class="mod_album_list">
-          <ul
-            class="album_ul__list"
-            v-for="item in SaleProducts"
-            :key="item.albumId"
-          >
-            <li class="album_li__item">
-              <div class="img-wrapper">
-                <img :src="item.coverUrl" alt="" />
-              </div>
-              <span class="album_li__item-span"
-                ><a href="" class="name"> {{ item.albumName }}</a></span
-              >
-              <span
-                ><a href=""> {{ item.artistName }}</a></span
-              >
-              <div class="price">
-                <span>{{ item.price }}</span>
-                <button>立即购买</button>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
-    <!-- <div class="digital-content">
-      <div class="digital-content-item">
-        <h2 class="part__tit">数字专辑榜单</h2>
-        <div class="mod_album_list">
-          <ul
-            class="album_ul__list"
-            v-for="item in RankingProducts"
-            :key="item.albumId"
-          >
-            <li class="album_li__item">
-              <div class="img-wrapper">
-                <img :src="item.coverUrl" alt="" />
-              </div>
-              <span class="album_li__item-span"
-                ><a href="" class="name"> {{ item.albumName }}</a></span
-              >
-              <span
-                ><a href=""> {{ item.artistName }}</a></span
-              >
-              <div class="price">
-                <span>{{ item.price }}</span>
-                <button>立即购买</button>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="digital-content">
-      <div class="digital-content-item">
-        <h2 class="part__tit">日本专辑</h2>
-        <div class="mod_album_list">
-          <ul
-            class="album_ul__list"
-            v-for="item in StyleProducts"
-            :key="item.albumId"
-          >
-            <li class="album_li__item">
-              <div class="img-wrapper">
-                <img :src="item.coverUrl" alt="" />
-              </div>
-              <span class="album_li__item-span"
-                ><a href="" class="name"> {{ item.albumName }}</a></span
-              >
-              <span
-                ><a href=""> {{ item.artistName }}</a></span
-              >
-              <div class="price">
-                <span>{{ item.price }}</span>
-                <button>立即购买</button>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
+    <!-- <ProductsDetail /> -->
   </div>
 </template>
 
 <script>
 // import Carousel from "../../components/Carousel";
 import ProductsList from "./coment/ProductsList";
+// import ProductsDetail from "./coment/ProductsDetail/index";
 import {
   reqGetSaleComentList,
   reqGetStyleCometList,
@@ -128,6 +42,7 @@ export default {
   components: {
     // Carousel,
     ProductsList,
+    // ProductsDetail,
   },
   data() {
     return {
