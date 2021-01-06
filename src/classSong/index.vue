@@ -15,60 +15,25 @@
                 <a href="javascript:;" class="active">国语</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">英语</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">韩语</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">粤语</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">日语</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">法语</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">闽南语</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
-                  >更多</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="playList_item">
-            <h3 class="playList_item_header">语种</h3>
-            <i class="playList_item_line"></i>
-            <ul class="playList_item_content">
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
-              </li>
-              <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">拉丁语</a>
               </li>
               <li class="playList_item_box">
                 <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
@@ -78,32 +43,32 @@
             </ul>
           </div>
           <div class="playList_item">
-            <h3 class="playList_item_header">语种</h3>
+            <h3 class="playList_item_header">流派</h3>
             <i class="playList_item_line"></i>
             <ul class="playList_item_content">
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">流行</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">轻音乐</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">摇滚</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">民谣</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">R&B</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">嘻哈</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">电子</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">古典</a>
               </li>
               <li class="playList_item_box">
                 <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
@@ -113,32 +78,32 @@
             </ul>
           </div>
           <div class="playList_item">
-            <h3 class="playList_item_header">语种</h3>
+            <h3 class="playList_item_header">主题</h3>
             <i class="playList_item_line"></i>
             <ul class="playList_item_content">
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">ACG</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">经典</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">网络</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">影视</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">KTV</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">儿歌</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">中国风</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">古风</a>
               </li>
               <li class="playList_item_box">
                 <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
@@ -148,32 +113,65 @@
             </ul>
           </div>
           <div class="playList_item">
-            <h3 class="playList_item_header">语种</h3>
+            <h3 class="playList_item_header">心情</h3>
             <i class="playList_item_line"></i>
             <ul class="playList_item_content">
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">伤感</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">安静</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">快乐</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">治愈</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">励志</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">甜蜜</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">寂寞</a>
               </li>
               <li class="playList_item_box">
-                <a href="javascript:;">国语</a>
+                <a href="javascript:;">宣泄</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">思念</a>
+              </li>
+            </ul>
+          </div>
+          <div class="playList_item">
+            <h3 class="playList_item_header">场景</h3>
+            <i class="playList_item_line"></i>
+            <ul class="playList_item_content">
+              <li class="playList_item_box">
+                <a href="javascript:;">睡前</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">夜店</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">学习</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">运动</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">开车</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">约会</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">工作</a>
+              </li>
+              <li class="playList_item_box">
+                <a href="javascript:;">旅行</a>
               </li>
               <li class="playList_item_box">
                 <a href="javascript:;" class="iconfont icon-jy-Down-Outlined"
@@ -253,15 +251,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: #333;
-}
 .center {
   width: 100%;
   background-color: rgb(240, 240, 240);
@@ -300,14 +289,15 @@ a {
   margin: 8px 0;
   font-size: 14px;
 }
+.playList_item li .active {
+  color: #fff;
+  background-color: #31c27c;
+}
 .playList_item li a {
   padding: 2px 8px;
   margin-left: 10px;
   text-align: center;
-}
-.playList_item li .active {
-  color: #fff;
-  background-color: #31c27c;
+  color: black;
 }
 .playList_item li a:hover {
   color: rgba(99, 233, 22, 0.856);
@@ -344,6 +334,7 @@ a {
   height: 40px;
   text-align: center;
   line-height: 40px;
+  color: black;
 }
 .allSong .allSong_header .allSong_new .active {
   background-color: #31c27c;
@@ -385,8 +376,9 @@ a {
 span {
   display: block;
   font-size: 14px;
+  color: black;
 }
-.allSong_list_item .a1:hover {
+.allSong_list_item a:hover {
   color: #31c27c;
 }
 .songText span {
