@@ -3,7 +3,7 @@ import Vue from "vue";
 // 引入vuex
 import Vuex from "vuex";
 // 引入modules模块
-import modules from "./modules/classSong";
+import modules from './modules'
 // 声明使用vuex
 Vue.use(Vuex);
 

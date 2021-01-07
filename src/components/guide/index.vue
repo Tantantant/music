@@ -1,7 +1,7 @@
 <template>
   <div class="client_guide">
     <p class="client_guide_text">查看更多内容,请下载客户端</p>
-    <a href="##" class="client_guide_btn">立即下载</a>
+    <span class="client_guide_btn" style="color: #fff">立即下载</span>
   </div>
 </template>
 
@@ -33,5 +33,6 @@ export default {
   border-radius: 41px;
   background-color: #31c27c;
   text-decoration: none;
+  cursor pointer
 }
 </style>

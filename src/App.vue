@@ -5,13 +5,13 @@
     <!-- <TopList />
     <ModtopList /> -->
 
-    <Header />
+    <Header v-if="!$route.meta.isFooterHide"/>
     <!-- <Newdisc />
     <Digital />
     <Singer /> -->
-    <Home></Home>
+    <!-- <Home></Home> -->
     <router-view></router-view>
-    <Footer />
+    <Footer v-if="!$route.meta.isFooterHide"/>
     <!-- <Singerlist /> -->
   </div>
 </template>
@@ -21,7 +21,7 @@
 import Header from "./components/header";
 // import Digital from "./views/Digital/index";
 import "./styles/reset.css";
-import Home from './views/Home/home'
+// import Home from './views/Home/home'
 
 // import classSong from "./classSong";
 import Footer from './components/footer'
@@ -37,7 +37,7 @@ export default {
     // Singer,
     Footer,
     // Singerlist
-    Home
+    // Home
   },
 };
 </script>

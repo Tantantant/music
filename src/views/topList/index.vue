@@ -4,19 +4,13 @@
       <dl>
         <dt>巅峰榜</dt>
         <dd
-          :class="isShow ? 'active' : ''"
-          @click="handleSelect(index, $event)"
+          :class="index === indexs ? 'active' : ''"
+          @click="handleSelect(index)"
           v-for="(list, index) in topList"
           :key="list.id"
-          :data-id="index"
         >
           {{ list.name }}
         </dd>
-        <!-- <dd>热歌榜</dd>
-        <dd>新歌榜</dd>
-        <dd>流行指数榜</dd>
-        <dd>听歌识曲榜</dd>
-        <dd>飙升榜</dd> -->
       </dl>
       <!-- <dl>
         <dt>地区榜</dt>
@@ -62,10 +56,11 @@
 <script>
 import { getToplist } from "../../api/topList";
 export default {
+  name: "TopList",
   data() {
     return {
       topList: {},
-      isShow: false,
+      indexs: 0,
     };
   },
   async mounted() {
@@ -78,11 +73,12 @@ export default {
     }
   },
   methods: {
-    handleSelect(index, e) {
-      const { id } = e.target.dataset;
-      if (id == index) {
-        this.isShow = !this.isShow;
-      }
+    handleSelect(index) {
+      this.indexs = index;
+      // const { id } = e.target.dataset;
+      // if (id == index) {
+      //   this.isShow = !this.isShow;
+      // }
     },
   },
 };
@@ -116,11 +112,13 @@ export default {
   padding: 8px 17px;
 }
 
-.topList_nav dl dd:hover {
-  color: #31c27c;
-}
+// .topList_nav dl dd:hover {
+//   color: #31c27c;
+// }
 
 .active {
   background: #31c27c;
+  color: #fff;
 }
+
 </style>
