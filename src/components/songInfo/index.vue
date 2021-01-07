@@ -64,10 +64,11 @@ export default {
       songInfoList: (state) => state.topList.songInfoList,
     }),
   },
-  methods: {},
+
   mounted() {
     // this.$router.query
     const { id } = this.$route.query;
+    console.log(id)
     const music = this.songInfoList;
 
     // this.$nextTick(function () {
@@ -81,6 +82,9 @@ export default {
     this.musicInfo = res;
     // });
     // console.log(this.musicInfo)
+
+    // 跳转音乐播放
+    
   },
   components: {
     Comment,

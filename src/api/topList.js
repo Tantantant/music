@@ -31,4 +31,13 @@ export const getMusicUrl = (id) => {
     })
 }
 
+// 歌词
+
+export const getLyric = (id) => {
+    return request({
+        method: 'GET',
+        url: `/lyric?id=${id}`
+    })
+}
+
 

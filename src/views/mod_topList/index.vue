@@ -145,7 +145,7 @@ export default {
     ...mapState({
       songInfoList: (state) => state.topList.songInfoList,
       comment: (state) => state.topList.comment,
-      musicInfo: (state) => state.topList.musicInfo,
+      // musicInfo: (state) => state.topList.musicInfo,
     }),
   },
   mounted() {
@@ -157,6 +157,7 @@ export default {
     // 跳转音乐详情
     toSongInfo(index) {
       const id = this.songInfoList[index].id;
+
       //  console.log(id)
       // this.$router.push('/song',)
 
@@ -169,7 +170,7 @@ export default {
       this.$store.commit("SONGINFO", songId);
       // console.log(this.songInfoList)
       this.$router.push("/playmusic");
-      console.log("musicInfo", this.musicInfo);
+      this.$store.dispatch('getLyric',songId)
 
       // 跳转打开新窗口
       // let routeUrl = this.$router.resolve({ path: "/playmusic" });

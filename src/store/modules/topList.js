@@ -1,11 +1,12 @@
-import { getTopDetail ,getMusicUrl,getComment} from '../../api/topList'
+import { getTopDetail ,getMusicUrl,getComment,getLyric} from '../../api/topList'
 
 export default {
     state: {
         songInfoList: {},
         musicInfo:{},
         comment:{},
-        palySong:[]
+        palySong:[],
+        lyric:{}
     },
     actions: {
         // 排行榜歌曲信息
@@ -18,13 +19,17 @@ export default {
         // 音乐地址
         async getMusicUrls({commit},id){
             const musicUrl = await getMusicUrl(id)
-            console.log('musicUrl',musicUrl)
             commit('MUSICURL',musicUrl)
         },
         // 评论
         async getComments({commit}){
             const comment = await getComment()
             commit('COMMENT',comment)
+        },
+        // 歌词
+        async getLyric({commit},id){
+            const lyric = await getLyric(id)
+            commit('LYRIC',lyric)
         }
 
     },
@@ -52,10 +57,10 @@ export default {
                 return
             }).filter(item=> item)
         },
-        // // 操作播放页面的音乐地址
-        // MUSICURLADDRESS(state,songId){
-        //     state.musicUrladdress = state.musicInfo
-        // }
+        // 歌词
+        LYRIC(state,lyric){
+            state.lyric = lyric
+        }
     },
     getters: {
 

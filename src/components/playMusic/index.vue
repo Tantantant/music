@@ -7,7 +7,7 @@
     }"
   >
     <div class="mask">
-      <h1>
+      <h1 style="padding: 20px">
         <img src="//y.gtimg.cn/mediastyle/yqq/img/player_logo.png" alt="" />
       </h1>
       <div class="palyMusic_center">
@@ -19,14 +19,20 @@
             <a href=""><i></i>删除</a>
             <a href=""><i></i>清空列表</a>
           </div>
-          <div>
+          <div class="ullist">
             <ul class="songlsit_nav">
-              <li>
+              <li class="song">歌曲</li>
+              <li class="songAuthor">歌手</li>
+              <li class="songTime">时长</li>
+            </ul>
+            s
+            <ul class="songlsit_nav">
+              <li class="input">
                 <input type="checkbox" />
               </li>
               <li class="song">{{ palySong[0].name }}</li>
               <li class="songAuthor">{{ palySong[0].nickName }}</li>
-              <li class="songTime">时长</li>
+              <li class="songTime">04:16</li>
             </ul>
           </div>
         </div>
@@ -38,29 +44,16 @@
           <div class="image">
             <img :src="palySong[0].picUrl" alt="" />
           </div>
+          <div class="lyric">
+            <div>歌曲名:</div>
+            <div>歌手名:</div>
+            <div>专辑名:</div>
+            <p></p>
+            <p></p>
+          </div>
         </div>
       </div>
       <div class="palyMusic_footer">
-        <!-- <div> -->
-        <!-- <i class="iconfont icon-triangle-left"></i> -->
-        <!-- <i class="iconfont icon-bofang2"></i> -->
-        <!-- <audio
-          :src="musicInfo[0].url"
-          controls
-        ></audio> -->
-        <!-- <i class="iconfont icon-triangle-right"></i> -->
-        <!-- </div> -->
-        <!-- <div class="progress">
-        <div class="songname">挥着翅膀的女孩儿-容祖儿</div>
-        <p class="pro"></p>
-      </div>
-      <div class="right">
-        <i class="iconfont icon-ziyuan"></i>
-        <i class="iconfont icon-icon-test"></i>
-        <i class="iconfont icon-xiazai"></i>
-        <i class="iconfont icon-pinglun" @click="add"></i>
-      </div> -->
-
         <aplayer
           class="aplayer"
           autoplay
@@ -84,16 +77,33 @@ export default {
   data() {
     return {
       isChecked: false,
+      lyrics: {},
     };
   },
   computed: {
     ...mapState({
       palySong: (state) => state.topList.palySong,
       musicInfo: (state) => state.topList.musicInfo,
+      lyric: (state) => state.topList.lyric,
     }),
   },
-  mounted() {
-    // this.$store.dispatch("getMusicUrls");
+
+  methods: {
+    Arrays() {
+      console.log(this.lyric.lrc.lyric);
+      for (let i of this.lyric.lrc.lyric) {
+        console.log('i',i)
+        this.lyrics.push(i);
+      }
+    },
+    mounted() {
+      console.log(this.palySong)
+      this.lyrics = this.palySong
+      // this.Arrays();
+      // console.log(111);
+      // console.log(this.lyric);
+      console.log('lyric',this.lyrics)
+    },
   },
   components: {
     Aplayer,
@@ -105,12 +115,23 @@ export default {
 .aplayer {
   width: 100%;
   background-color: rgba(255, 255, 255, 0);
-  // font-size: 29px;
   color: #fff;
 }
 
+.lyric {
+  height: 40px;
+  line-height: 40px;
+
+  div {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+  }
+}
+
 .songNameInfo {
-  height: 600px;
+  width: 340px;
+  height: 560px;
 
   .image {
     padding-top: 30px;
@@ -181,7 +202,6 @@ export default {
   width: 100%;
   height: 100%;
 
-  // background: rgba(0, 0, 0, 0.9) no-repeat;
   .palyMusic_center {
     width: 1300px;
     height: 100%;
@@ -208,6 +228,10 @@ export default {
   }
 }
 
+.ullist {
+  position: relative;
+}
+
 .songlsit_nav {
   display: flex;
   width: 853px;
@@ -216,9 +240,25 @@ export default {
   line-height: 50px;
   font-size: 16px;
   color: #999;
+  border-bottom: 1px solid #bdbdbe;
+
+  .input {
+    position: absolute;
+    left: -20px;
+    top: 30px;
+    padding-left: 20px;
+
+    input {
+      width: 20px;
+      height: 100px;
+      opacity: 0.5;
+      border: 1px solid #fff;
+    }
+  }
 
   .song {
     width: 68%;
+    padding-left: 30px;
   }
 
   .songAuthor {
