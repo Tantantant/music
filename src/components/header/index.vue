@@ -68,7 +68,12 @@
           >登录</a
         >
         <div class="headPortrait" v-else>
-          <img :src="profile.avatarUrl" alt="头像" class="headPor" />
+          <img
+            :src="profile.avatarUrl"
+            alt="头像"
+            class="headPor"
+            @click="myMusic"
+          />
           <img
             src="//y.gtimg.cn/mediastyle/yqq/img/login_qq.png?max_age=2592000"
             alt="图标"
@@ -167,10 +172,16 @@ export default {
         this.$message.success("退出登录成功");
         localStorage.removeItem("token");
         localStorage.removeItem("profile");
+        this.$router.push("/newdisc");
       }
     },
+    //点击文本框弹出推荐歌曲
     querySearch(queryString, cb) {
       cb(this.restaurants);
+    },
+    //跳转到myMusic页面
+    myMusic() {
+      this.$router.push("/mymusic");
     },
   },
   mounted() {
@@ -315,6 +326,7 @@ export default {
           height: 38px;
           border-radius: 90px;
           vertical-align: -14px;
+          cursor: pointer;
         }
 
         .qqicon {

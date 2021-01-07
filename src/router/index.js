@@ -7,6 +7,7 @@ import Digital from '../views/Digital';
 import Singer from '../views/singer';
 import SingerList from '../views/singer-details';
 import  Newdisc from '../views/Newdisc/'
+import  Mymusic from '../views/Mymusic'
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,10 @@ const router = new VueRouter({
 		{
 			path: '/newdisc',
 			component: Newdisc
+		},
+		{
+			path: '/mymusic',
+			component: Mymusic
 		}
 	]
 });

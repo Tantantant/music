@@ -18,7 +18,7 @@
       <span class="fabiao" @click="handleComment">发表评论</span>
     </div>
     <div class="new_message">
-      <p>最新评论({{commentList.length}})</p>
+      <p>最新评论({{ commentList.length }})</p>
     </div>
 
     <ul class="message">
@@ -72,7 +72,7 @@ export default {
         console.log(comment);
         this.commentList.unshift(comment);
       }
-      console.log(this.commentList)
+      console.log(this.commentList);
     },
   },
 };

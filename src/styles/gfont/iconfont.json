@@ -1,0 +1,44 @@
+{
+  "id": "2309755",
+  "name": "shi'zhan",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "36566",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "55147",
+      "name": "下载",
+      "font_class": "46",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "6303533",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12732494",
+      "name": "批量编辑",
+      "font_class": "piliangbianji",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "975317",
+      "name": "搜索",
+      "font_class": "search",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    }
+  ]
+}

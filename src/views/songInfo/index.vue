@@ -3,13 +3,13 @@
     <div class="songheader">
       <div class="mod_data">
         <span class="data_cover">
-          <img class="image" :src="newDisc[0].picUrl" alt="" />
+          <img class="image" :src="newDisc.picUrl" alt="" />
         </span>
       </div>
       <div class="header_right">
         <div class="data__cont">
-          <div class="songName">{{ newDisc[0].name }}</div>
-          <div class="nickNme">{{ newDisc[0].artistName }}</div>
+          <div class="songName">{{ newDisc.name }}</div>
+          <div class="nickNme">{{ newDisc.artistName }}</div>
           <ul class="attr">
             <li>流派 : POP流行</li>
             <li>语种 : 国语</li>
@@ -39,8 +39,8 @@
       <li class="songList_li">
         <div class="songList_top"></div>
 
-        <div class="songList_songInfo">{{ newDisc[0].name }}</div>
-        <div class="songList_Author">{{ newDisc[0].artistName }}</div>
+        <div class="songList_songInfo">{{ newDisc.name }}</div>
+        <div class="songList_Author">{{ newDisc.artistName }}</div>
         <div class=" ">03:20</div>
       </li>
     </ul>

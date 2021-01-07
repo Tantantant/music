@@ -18,7 +18,9 @@ import {
 	TabPane,
 	Carousel,
 	CarouselItem,
-	Popover
+	Popover,
+	Table,
+	TableColumn
 } from 'element-ui';
 
 Vue.use(Button);
@@ -39,5 +41,7 @@ Vue.use(Input);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Popover);
+Vue.use(Table);
+Vue.use(TableColumn);
 Vue.prototype.$message = Message;
 Vue.prototype.$alert = MessageBox.alert;
