@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <classSong />
+    <Header />
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
-import classSong from "./classSong";
 export default {
   name: "App",
-  components: {
-    classSong,
-  },
 };
 </script>
 

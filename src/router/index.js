@@ -1,37 +1,32 @@
-// import Vue from 'vue'
-// import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-// import Songinfo from '../views/songInfo'
-// import home from "../view/Home/home.vue"
-// import Digital from "../view/Digital"
-// import Singer from "../views/singer"
-// import SingerList from "../views/singer-details"
+import Home from "../views/Home";
+import Singer from "../views/Singer";
+import classSong from "../views/classSong";
+import PlayList from "../views/PlayList";
 
-// Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-// const router = new VueRouter({
-//     mode: "history",  // history模式
-//     routes: [
-//         {
-//             path: "/",
-//             component: home,
-//         },
-//         {
-//             path: '/song',
-//             component: Songinfo,
-//         },
-//         {
-//             path: "/mv_list",
-//             component: Digital,
-//         },
-//         {
-//             path: '/singer',
-//             component: Singer
-//         },
-//         {
-//             path: '/singerlist',
-//             component: SingerList
-//         }
-//     ]
-// })
-// export default router
+const router = new VueRouter({
+  mode: "history", // history模式
+  routes: [
+    {
+      path: "/",
+      component: Home,
+    },
+    {
+      path: "/singer",
+      component: Singer,
+    },
+    {
+      path: "/classSong",
+      component: classSong,
+    },
+    {
+      path: "/playList",
+      component: PlayList,
+    },
+  ],
+});
+export default router;

@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- 头部 -->
-    <!-- <Header /> -->
-
     <!-- 内容区 -->
     <div class="center">
       <div class="content">
@@ -199,15 +196,17 @@
                 :key="item.id"
               >
                 <div class="allSong_list_img">
-                  <a href="javascript:;">
+                  <!-- <a href="javascript:;">
                     <img :src="item.imgurl" alt="" />
-                  </a>
-                  <i>
-                    <!-- <img src="../assets/images/cover_play@2x.png" alt="" /> -->
-                  </i>
+                  </a> -->
+                  <router-link to="/PlayList"
+                    ><img :src="item.imgurl" alt=""
+                  /></router-link>
+                  <i></i>
                 </div>
                 <div class="allSong_list_box">
-                  <a href="javascript" class="a1">{{ item.dissname }}</a>
+                  <!-- <a href="javascript" class="a1">{{ item.dissname }}</a> -->
+                  <router-link to="/PlayList">{{ item.dissname }}</router-link>
                   <a href="javascript" class="a2">{{ item.name }}</a>
                   <span
                     >播放量: {{ (item.listennum / 10000).toFixed(1) }}万</span
@@ -219,26 +218,21 @@
         </div>
 
         <!-- 下载区 -->
-        <div class="songText">
-          <span>查看更多内容，请下载客户端</span>
-          <div class="songText_a">
-            <a href="javascript:;">立即下载</a>
-          </div>
-        </div>
+        <SongText />
       </div>
     </div>
-
-    <!-- 底部 -->
-    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
+import SongText from "../../components/SongText";
 // 引入辅助函数
 import { mapState } from "vuex";
 export default {
   name: "classSong",
-  components: {},
+  components: {
+    SongText,
+  },
   mounted() {
     this.$store.dispatch("getSongList");
   },
@@ -362,7 +356,7 @@ export default {
   opacity: 0;
   width: 49px;
   height: 49px;
-  background-image: url("../assets/images/cover_play@2x.png");
+  background-image: url("../../assets/images/cover_play@2x.png");
   background-size: contain;
   position: absolute;
   left: 40%;
@@ -381,33 +375,8 @@ span {
 .allSong_list_item a:hover {
   color: #31c27c;
 }
-.songText span {
-  display: block;
-  width: 1200px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-  font-size: 18px;
-  color: black;
-}
 .allSong_list_item .a2,
 span {
   color: #999999;
-}
-.songText .songText_a {
-  width: 175px;
-  height: 41px;
-  margin: 20px auto;
-  text-align: center;
-  line-height: 41px;
-  background-color: #31c27c;
-  border-radius: 41px;
-}
-.songText .songText_a:hover {
-  background-color: #327e59;
-}
-.songText .songText_a a {
-  font-size: 16px;
-  color: #fff;
 }
 </style>
