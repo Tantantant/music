@@ -12,7 +12,7 @@
 */
 import Vue from "vue"
 import VueLazyLoad from "vue-lazyload"
-import loading from "../assets/imags/loading.gif"
+import loading from "../assets/loading.jpg"
 
 Vue.use(VueLazyLoad, {
   loading: loading

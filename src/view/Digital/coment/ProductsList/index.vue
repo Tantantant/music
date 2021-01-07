@@ -8,7 +8,7 @@
               class="img-wrapper"
               :to="{ path: '/productsDetail', query: { id: item.albumId } }"
             >
-              <img :src="item.coverUrl" alt="" />
+              <img v-lazy="item.coverUrl" alt="" />
             </router-link>
             <span class="album_li__item-span"
               ><router-link
@@ -41,14 +41,6 @@ export default {
   },
   props: {
     products: Array,
-  },
-  data() {
-    return {};
-  },
-  async mounted() {
-    console.log("products");
-    // let products = await reqGetSaleComentList();
-    // this.products = products.products.slice(0, 5); //只需要前五条
   },
 };
 </script>
@@ -169,12 +161,7 @@ export default {
   background: #ddd;
   margin-top: 20px;
 }
-.digital-header img {
-  width: 100%;
-  height: auto;
-  /* height: 100%; */
-  margin-top: 46px;
-}
+
 .el-carousel__item h3 {
   color: #ddd;
   font-size: 14px;

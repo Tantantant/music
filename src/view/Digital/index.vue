@@ -2,9 +2,22 @@
   <div class="digital">
     <!-- <Carousel :carouselList="carouselList" /> -->
     <div class="digital-banner">
-      <el-carousel class="digital-header" :interval="4000" type="card">
-        <el-carousel-item v-for="item in StyleProducts" :key="item.albumId">
-          <img :src="item.coverUrl" alt="" />
+      <el-carousel
+        class="digital-header"
+        id="el-carousel"
+        :interval="40000"
+        type="card"
+        indicator-position="outside"
+        arrow="always"
+      >
+        <el-carousel-item v-for="item in topImg" :key="item.encodeId">
+          <img
+            id="bannerImg"
+            style="width: 100%; height: auto"
+            ref="bannerHeight"
+            v-lazy="item.pic"
+            alt=""
+          />
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -36,6 +49,7 @@ import {
   reqGetSaleComentList,
   reqGetStyleCometList,
   reqGetRankingCometList,
+  reqGetTopImgList,
 } from "../../api/digital";
 
 export default {
@@ -44,32 +58,78 @@ export default {
     ProductsList,
     // ProductsDetail,
   },
+
   data() {
     return {
+      bannerHeight: "", //element 跑马灯 轮播图初始高度
       allList: {},
       SaleProducts: [],
       RankingProducts: [],
       StyleProducts: [],
+      topImg: [],
     };
   },
+  methods: {
+    // el-carousel  给这个元素设置高度 为图片的高度
+    imgLoad() {
+      console.log("调用imgLoad");
+      this.$nextTick(() => {
+        // let bannerHeight = getComputedStyle(this.$refs.bannerHeight[0])[
+        //   "height"
+        // ];
+        /*   let bannerHeight = getComputedStyle(
+          document.getElementById("bannerImg")
+        )["height"]; */
+        console.log(document);
+        console.log(document.querySelector("#bannerImg").width);
+
+        // this.bannerHeight = bannerHeight;
+        // console.log(this.bannerHeight);
+        // document.getElementById("el-carousel").style.height = this.bannerHeight;
+
+        // let height = document.getElementById("bannerImg");
+        // console.log(height);
+        // console.log(this.$refs.bannerHeight);
+        // console.log(this.$refs.bannerHeight);
+        // // <img style="height:100px" height/>
+        // // console.log(getComputedStyle(this.$refs.bannerHeight[0]));
+        // let a = getComputedStyle(this.$refs.bannerHeight[0]);
+        // console.log(a);
+        // console.log(a["width"]);
+        // console.log(a["height"]);
+        // console.log(getComputedStyle(this.$refs.bannerHeight[0])[127]);
+        // console.log(getComputedStyle(this.$refs.bannerHeight[0])[height]);
+
+        // this.bannerHeight = this.$refs.
+      });
+    },
+  },
+  // beforeUpdate() {
+  //   this.imgLoad();
+  // },
   async mounted() {
     let SaleProducts = await reqGetSaleComentList();
     let StyleProducts = await reqGetStyleCometList({ data: "JP" });
     let RankingProducts = await reqGetRankingCometList();
+    let topImg = await reqGetTopImgList();
 
+    this.topImg = topImg.data.blocks[0].extInfo.banners; //处理轮播图的数据
     this.SaleProducts = SaleProducts.products.slice(0, 5); //只需要前五条
     this.StyleProducts = StyleProducts.albumProducts.slice(0, 5); //只需要前五条
     this.RankingProducts = RankingProducts.products.slice(0, 5);
-    console.log(this.RankingProducts);
+
+    this.imgLoad();
+    // console.log(this.RankingProducts);
   },
 };
 </script>
 
-<style>
+<style lang="stylus">
 .product-content {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .produc-title {
   margin: 20px 10px 10px 10px;
   font-size: 24px;
@@ -77,16 +137,16 @@ export default {
   line-height: 58px;
   text-align: center;
 }
-.digital-banner {
-  background-color: #ddd;
-}
+
 .digital-content {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .name {
   color: #000 !important;
 }
+
 .price {
   display: flex;
   justify-content: space-between;
@@ -94,10 +154,12 @@ export default {
   height: 28px;
   line-height: 28px;
 }
+
 .price span {
   font-weight: 400;
   color: #999;
 }
+
 .price button {
   font-size: 12px;
   line-height: 28px;
@@ -109,6 +171,7 @@ export default {
   color: #000;
   background-color: white;
 }
+
 .price button:hover {
   background-color: #ededed;
   color: #333;
@@ -120,11 +183,13 @@ export default {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
 .mod_album_list {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+
 .album_ul__list {
   /* display: flex; */
   width: 25%;
@@ -132,6 +197,7 @@ export default {
   font-size: 14px;
   /* justify-content: space-between; */
 }
+
 .album_li__item {
   width: 100%;
   display: flex;
@@ -146,30 +212,37 @@ export default {
   text-overflow: ellipsis;
   height: 22px;
 }
+
 .album_li__item-span {
   color: red;
   margin-top: 25px;
 }
+
 /* 过度效果 */
 .album_li__item .img-wrapper {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
+
 .album_li__item .img-wrapper img {
   width: 100%;
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
 }
+
 .img-wrapper img:hover {
   transform: scale(1.1);
 }
+
 .digital {
   width: 100%;
 }
+
 .el-carousel__item .el-carousel__mask {
   height: auto;
 }
+
 .el-carousel__button {
   display: block;
   opacity: 0.48;
@@ -177,19 +250,24 @@ export default {
   width: 10px !important;
   height: 10px !important;
 }
+
 .digital-header {
   max-width: 1200px;
   margin: 0 auto;
-  height: auto;
-  background: #ddd;
+  height: 300px;
+  // background: rgba(221, 221, 221, 0.5);
+  background: rgba(216, 94, 94, 0.5);
   margin-top: 20px;
 }
-.digital-header img {
-  width: 100%;
-  height: auto;
-  /* height: 100%; */
-  margin-top: 46px;
+
+.el-carousel__container {
+  height: 100% !important;
 }
+
+.digital-banner {
+  background-color: green;
+}
+
 .el-carousel__item h3 {
   color: #ddd;
   font-size: 14px;
@@ -199,10 +277,12 @@ export default {
 }
 
 .el-carousel__item:nth-child(2n) {
-  background-color: #ddd;
+  background: red;
+  height: 100%;
 }
 
 .el-carousel__item:nth-child(2n + 1) {
-  background-color: #ddd;
+  background: red;
+  height: 100%;
 }
 </style>

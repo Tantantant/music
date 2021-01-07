@@ -4,23 +4,18 @@
     <div class="mod-data">
       <!-- 左边图片 -->
       <span class="data-cover">
-        <img
-          :src="productDetail.album.coverUrl"
-          :alt="productDetail.album.albumName"
-        />
+        <img v-lazy="newDisc.picUrl" :alt="newDisc.albumName" />
         <i class="data-cover-mask"></i>
       </span>
       <!-- 右边详细 -->
       <div class="data-cont">
         <div class="data-name">
-          <h1 class="data-name-text">{{ productDetail.album.albumName }}</h1>
+          <h1 class="data-name-text">{{ newDisc.albumName }}</h1>
         </div>
         <div class="data-songer">
           <!-- 放置一个icon图标 代表账户 -->
           <i class="icon-singer"></i>
-          <a href="" class="data-songer-name">{{
-            productDetail.album.artistName
-          }}</a>
+          <a href="" class="data-songer-name">{{ newDisc.artistName }}</a>
         </div>
         <ul class="data-info">
           <li class="info-item">流派：POP流行</li>
@@ -28,12 +23,10 @@
           <li class="info-item">发行时间：201-232-3</li>
           <li class="info-item">唱片公司：环球时代</li>
         </ul>
-        <div class="data-tips">已售 {{ productDetail.product.saleNum }}张</div>
+        <div class="data-tips">已售 {{ newDisc.saleNum }}</div>
         <div class="data-actions">
           <el-button type="text" @click="isPay = true" class="mod_btn_green"
-            ><strong class="data__price">
-              ￥{{ productDetail.product.price }}
-            </strong>
+            ><strong class="data__price"> ￥{{ newDisc.price }} </strong>
             点击购买</el-button
           >
           <el-button class="mod_btn" icon="el-icon-video-play"
@@ -57,21 +50,24 @@
         <!-- 左边：上面曲目，下面评论 -->
         <div class="mode-teb">
           <el-tabs>
-            <el-tab-pane label="曲目列表" name="first">曲目列表</el-tab-pane>
-            <el-tab-pane label="粉丝榜" name="second">粉丝榜</el-tab-pane>
+            <el-tab-pane label="曲目列表" name="曲目列表">
+              <div class="mode-songlist">
+                <el-table stripe style="width: 100%" :data="tableData">
+                  <el-table-column prop="name" label="歌曲" width="180">
+                  </el-table-column>
+                  <el-table-column prop="address" label="歌手">
+                  </el-table-column>
+                  <el-table-column prop="time" label="时长"> </el-table-column>
+                </el-table>
+                <ul class="songlist">
+                  <li></li>
+                </ul>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="粉丝榜" name="second">234</el-tab-pane>
           </el-tabs>
         </div>
-        <div class="mode-songlist">
-          <el-table stripe style="width: 100%" :data="tableData">
-            <el-table-column prop="name" label="歌曲" width="180">
-            </el-table-column>
-            <el-table-column prop="address" label="歌手"> </el-table-column>
-            <el-table-column prop="time" label="时长"> </el-table-column>
-          </el-table>
-          <ul class="songlist">
-            <li></li>
-          </ul>
-        </div>
+
         <!-- 评论 标题 -->
         <div class="part__hd">
           <h2 class="part__tit">
@@ -90,7 +86,7 @@
         <div class="mod-about">
           <h3><span class="about-title">简介</span></h3>
           <div class="about-text">
-            <p></p>
+            <p>{{ newDisc.descr }}</p>
           </div>
         </div>
         <div class="mod-more">
@@ -103,7 +99,7 @@
                 :key="item.id"
               >
                 <div>
-                  <img class="playlist__img" :src="item.al.picUrl" alt="" />
+                  <img class="playlist__img" v-lazy="item.al.picUrl" alt="" />
                   <div>
                     <span class="playlist__text">{{ item.al.name }}</span>
                     <span class="playlist__other">2010-11-19</span>
@@ -159,7 +155,7 @@
 </template>
 
 <script>
-import { reqGetRankingDetail } from "../../../../api/digital";
+// import { reqGetRankingDetail } from "../../../../api/digital";
 
 import Comment from "./Comment";
 import { mapState, mapActions } from "vuex";
@@ -169,7 +165,8 @@ export default {
   },
   data() {
     return {
-      productDetail: null,
+      activeName: "曲目列表",
+      // productDetail: null,
       isPay: false, //登陆组件显示切换
       songerOther: {},
       tableData: [
@@ -200,10 +197,11 @@ export default {
     ...mapState({
       songList: (state) => state.productsDetail.songerList,
       songListTop: (state) => state.productsDetail.songerListTop,
+      newDisc: (state) => state.productsDetail.newDisc,
     }),
   },
   methods: {
-    ...mapActions(["getSongerList", "getSongerListTop"]),
+    ...mapActions(["getSongerList", "getSongerListTop", "getProductDetail"]),
     open() {
       //弹出购买窗口
       this.$alert("<strong>这是 <i>HTML</i> 片段</strong>", "HTML 片段", {
@@ -213,8 +211,8 @@ export default {
   },
   async mounted() {
     this.musicId = this.$route.query.id;
-    this.productDetail = await reqGetRankingDetail(this.musicId);
-    let songerId = this.productDetail.album.artistId;
+    await this.getProductDetail(this.musicId);
+    let songerId = this.newDisc.artistId;
     await this.getSongerList(songerId);
     await this.getSongerListTop(songerId);
   },
@@ -360,14 +358,12 @@ export default {
       }
 
       .about-text {
-        max-height: 88px;
+        height: 90px;
         overflow: hidden;
-
-        .more-title {
-          font-size: 20px;
-          font-weight: 400;
-          line-height: 46px;
-        }
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
       }
     }
 

@@ -1,8 +1,8 @@
 import request from "../utils/request"
 //获取MV列表
-export const reqGetMvList = () => {
+export const reqGetTopImgList = () => {
     return request({
-        url: "/mv_list",
+        url: "/homepage/block/page",
         method: "GET"
     })
 };

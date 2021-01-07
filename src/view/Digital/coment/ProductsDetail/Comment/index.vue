@@ -28,7 +28,7 @@
         :key="comment.commentId"
       >
         <a href="###"
-          ><img class="image" :src="comment.user.avatarUrl" alt=""
+          ><img class="image" v-lazy="comment.user.avatarUrl" alt=""
         /></a>
         <div class="messageContent">
           <span class="messageName">{{ comment.user.nickname }}</span>
@@ -208,7 +208,7 @@ export default {
   outline: 0;
   background-color: #f5f5f5;
   overflow: auto;
-  padding: 0 30px;
+  padding: 0 24px;
 }
 
 .surplus {
