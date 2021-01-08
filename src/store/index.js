@@ -1,7 +1,7 @@
 // 引入vue
-import Vue from "vue";
+import Vue from 'vue';
 // 引入vuex
-import Vuex from "vuex";
+import Vuex from 'vuex';
 // 引入modules模块
 import modules from './modules'
 // 声明使用vuex
@@ -18,9 +18,9 @@ const mutations = {};
 
 // 实例化vuex的对象并暴露出去
 export default new Vuex.Store({
-  state, //总的state
-  getters, //总的getters
-  actions, //总的actions
-  mutations, //总的mutations
-  modules, // 其他多个子模块的数据
+	state, //总的state
+	getters, //总的getters
+	actions, //总的actions
+	mutations, //总的mutations
+	modules // 其他多个子模块的数据
 });

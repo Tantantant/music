@@ -1,4 +1,4 @@
-import request from '../utils/request'
+import request from '../utils/request';
 
 // 榜单
 export const getToplist = () => {
@@ -40,4 +40,9 @@ export const getLyric = (id) => {
     })
 }
 
-
+// export const getTopDetail = () => {
+//     return request({
+//         method: 'GET',
+//         url: '/getTopLists'
+//     });
+// };
