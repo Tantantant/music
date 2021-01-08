@@ -34,10 +34,16 @@
 
 <script>
 // import { reqGetSaleComentList } from "../../../../api/digital";
-
+// import { mapState, mapActions } from "../../../../store/modules/productsDetail";
 export default {
   components: {
     // Carousel,
+  },
+  computed: {
+    // ...mapState({ newDisc: (state) => state.productsDetail.newDisc }),
+  },
+  methods: {
+    // ...mapActions(["getSongerList", "getSongerListTop", "getProductDetail"]),
   },
   props: {
     products: Array,
@@ -153,13 +159,6 @@ export default {
   border-radius: 50%;
   width: 10px !important;
   height: 10px !important;
-}
-.digital-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  height: auto;
-  background: #ddd;
-  margin-top: 20px;
 }
 
 .el-carousel__item h3 {

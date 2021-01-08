@@ -49,13 +49,13 @@
       <div class="detail_layout">
         <!-- 左边：上面曲目，下面评论 -->
         <div class="mode-teb">
-          <el-tabs>
+          <el-tabs v-model="activeName">
             <el-tab-pane label="曲目列表" name="曲目列表">
               <div class="mode-songlist">
-                <el-table stripe style="width: 100%" :data="tableData">
+                <el-table stripe style="width: 100%" :data="newPro">
                   <el-table-column prop="name" label="歌曲" width="180">
                   </el-table-column>
-                  <el-table-column prop="address" label="歌手">
+                  <el-table-column prop="songer" label="歌手">
                   </el-table-column>
                   <el-table-column prop="time" label="时长"> </el-table-column>
                 </el-table>
@@ -171,24 +171,19 @@ export default {
       songerOther: {},
       tableData: [
         {
-          time: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          time: "03:45",
+          name: "我的世界首则",
+          songer: "王一博",
         },
         {
-          time: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄",
+          time: "03:45",
+          name: "我的世界首则（伴奏）",
+          songer: "王一博",
         },
         {
-          time: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄",
-        },
-        {
-          time: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄",
+          time: "03:45",
+          name: "我的世界首则（纯音乐）",
+          songer: "王一博",
         },
       ],
     };
@@ -198,10 +193,16 @@ export default {
       songList: (state) => state.productsDetail.songerList,
       songListTop: (state) => state.productsDetail.songerListTop,
       newDisc: (state) => state.productsDetail.newDisc,
+      newPro: (state) => state.productsDetail.newPro,
     }),
   },
   methods: {
-    ...mapActions(["getSongerList", "getSongerListTop", "getProductDetail"]),
+    ...mapActions([
+      "getSongerList",
+      "getSongerListTop",
+      "getProductDetail",
+      "reqGetProductSong",
+    ]),
     open() {
       //弹出购买窗口
       this.$alert("<strong>这是 <i>HTML</i> 片段</strong>", "HTML 片段", {
@@ -213,8 +214,10 @@ export default {
     this.musicId = this.$route.query.id;
     await this.getProductDetail(this.musicId);
     let songerId = this.newDisc.artistId;
+    let albumId = this.newDisc.albumId;
     await this.getSongerList(songerId);
     await this.getSongerListTop(songerId);
+    await this.reqGetProductSong(albumId);
   },
 };
 </script>
@@ -447,8 +450,8 @@ export default {
       }
 
       img {
-        width: 100%;
-        height: 100%;
+        width: 250px;
+        height: auto;
       }
     }
 

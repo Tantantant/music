@@ -8,7 +8,6 @@
         :interval="40000"
         type="card"
         indicator-position="outside"
-        arrow="always"
       >
         <el-carousel-item v-for="item in topImg" :key="item.encodeId">
           <img
@@ -253,19 +252,20 @@ export default {
 
 .digital-header {
   max-width: 1200px;
+  // width: 100%;
   margin: 0 auto;
   height: 300px;
-  // background: rgba(221, 221, 221, 0.5);
-  background: rgba(216, 94, 94, 0.5);
+  background: rgba(221, 221, 221, 0.5);
+  // background: rgba(216, 94, 94, 0.5);
   margin-top: 20px;
 }
 
 .el-carousel__container {
-  height: 100% !important;
+  height: 87% !important;
 }
 
 .digital-banner {
-  background-color: green;
+  background-color: rgba(221, 221, 221, 0.5);
 }
 
 .el-carousel__item h3 {
@@ -277,12 +277,12 @@ export default {
 }
 
 .el-carousel__item:nth-child(2n) {
-  background: red;
-  height: 100%;
+  background: rgba(221, 221, 221, 0.5);
+  height: 80%;
 }
 
 .el-carousel__item:nth-child(2n + 1) {
-  background: red;
-  height: 100%;
+  background: rgba(221, 221, 221, 0.5);
+  height: 80%;
 }
 </style>

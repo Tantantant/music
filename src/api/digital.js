@@ -6,13 +6,7 @@ export const reqGetTopImgList = () => {
         method: "GET"
     })
 };
-//获取专辑列表(唱歌)
-export const reqGetComentList = () => {
-    return request({
-        url: '/cgi-bin/musicu.fcg?data={"albumlib":{"method":"get_album_by_tags","param":{"area":1,"company":-1,"genre":-1,"type":-1,"year":-1,"sort":2,"get_tags":1,"sin":0,"num":20,"click_albumid":0},"module":"music.web_album_library"}}',
-        method: "GET",
-    })
-}
+
 //获取数字专辑列表(可以卖的)
 export const reqGetSaleComentList = () => {
     return request({
@@ -37,7 +31,7 @@ export const reqGetRankingDetail = (id) => {
 };
 //获取歌手的歌曲列表
 export const reqGetSongerList = (id) => {
-    console.log(id);
+    // console.log(id);
     return request({
         url: `artist/top/song?id=${id}`,
         method: "GET",
@@ -45,7 +39,7 @@ export const reqGetSongerList = (id) => {
 };
 //获取歌手的歌曲列表前50名
 export const reqGetSongerListTop = (id) => {
-    console.log(id);
+    // console.log(id);
     return request({
         url: `artist/top/song?id=${id}`,
         method: "GET",
@@ -57,6 +51,13 @@ export const reqGetSongerListTop = (id) => {
 export const reqGetStyleCometList = ({ data = "Z_H" }) => {
     return request({
         url: `/album/list/style?area=${data}`,
+        method: "GET",
+    })
+};
+//获取专辑的歌曲用来展示
+export const reqGetProductSong = (id) => {
+    return request({
+        url: `/album?id=${id}`,
         method: "GET",
     })
 };
