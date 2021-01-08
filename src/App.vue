@@ -1,56 +1,23 @@
 <template>
   <div id="app">
-    <!-- <classSong></classSong> -->
-
-    <!-- <TopList />
-    <ModtopList /> -->
-
-    <Header v-if="!$route.meta.isFooterHide"/>
-    <!-- <Newdisc />
-    <Digital />
-    <Singer /> -->
-    <!-- <Home></Home> -->
+    <Header />
     <router-view></router-view>
-    <Footer v-if="!$route.meta.isFooterHide"/>
-    <!-- <Singerlist /> -->
+    <Footer />
   </div>
 </template>
 
 <script>
-// import Newdisc from "./views/Newdisc";
-import Header from "./components/header";
-// import Digital from "./views/Digital/index";
 import "./styles/reset.css";
-// import Home from './views/Home/home'
-
-// import classSong from "./classSong";
+import Header from "./components/header";
 import Footer from './components/footer'
-// import Singer from './views/singer'
-// import Singerlist from './views/singer-details'
+
 export default {
   name: "App",
   components: {
-    // classSong,
-    // Newdisc,
     Header,
-    // Digital,
-    // Singer,
     Footer,
-    // Singerlist
-    // Home
   },
 };
 </script>
 
-<style lang="stylus" scoped>
-html, body {
-  background-color: #ededed;
-}
-
-.appContainer {
-  width: 1240px;
-  display: flex;
-  margin: 0 auto;
-}
-</style>
-
+<style lang="less" scoped></style>

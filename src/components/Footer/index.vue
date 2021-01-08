@@ -112,11 +112,11 @@
 export default {
   name: 'Footer',
   data() {
-    return {}
+    return {};
   },
-}
+};
 </script>
-<style lang="stylus" >
+<style lang="stylus">
 .footer
   width 100%
   height 663px

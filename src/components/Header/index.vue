@@ -110,7 +110,8 @@
         <router-link to='/toplist'>排行榜</router-link>
       </li>
       <li>
-        <router-link to="">分类歌单</router-link>
+        <!-- <a href="javascript:;">分类歌单</a> -->
+        <router-link to="/classSong">分类歌单</router-link>
       </li>
       <li>
         <a href="javascript:;" class="item">电台</a>

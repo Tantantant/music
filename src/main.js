@@ -17,6 +17,16 @@ import './mock/mockServe';
 import './styles/iconfont/iconfont.css';
 import './assets/font/iconfont.css';
 import "swiper/swiper-bundle.min.css";
+import "swiper/css/swiper.css";
+// 引入公共组件
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+// 引入公共样式资源
+
+
+// 设置header,footer为全局公共组件
+Vue.component("Header", Header);
+Vue.component("Footer", Footer);
 
 Vue.use(ElementUI);
 

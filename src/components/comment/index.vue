@@ -6,20 +6,15 @@
       <span>共215565条评论</span>
     </div>
     <div class="commentArea">
-<<<<<<< HEAD
       <input
         type="textArea"
         placeholder="期待你的评论......"
         v-model="comment"
       />
-=======
-      <input type="textArea" placeholder="期待你的评论......" />
->>>>>>> 27e078c096e460b129b035266bdb95429b0c1a62
       <span class="surplus">剩余300字</span>
     </div>
     <div class="publish">
       <i class="iconfont icon-xiaolian"></i>
-<<<<<<< HEAD
       <span class="fabiao" @click="handleComment">发表评论</span>
     </div>
     <div class="new_message">
@@ -38,196 +33,6 @@
         <div class="messageContent">
           <span class="messageName">{{ comment.user.nickname }}</span>
           <p class="messageText">{{ comment.content }}</p>
-=======
-      <span>发表评论</span>
-    </div>
-    <div class="new_message">
-      <p>最新评论(245767)</p>
-    </div>
-
-    <ul class="message">
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
-          <div class="messageTime">
-            <span>1月4日 10:43</span>
-            <span>
-              <i class="iconfont icon-dianzan">0</i>
-              <i class="iconfont icon-pinglun"></i>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="messageList">
-        <a href="###"
-          ><img
-            class="image"
-            src="//iconfont.alicdn.com/t/431d51a3-6e5c-49ba-9c32-ddf358832252.png@200h_200w.jpg"
-            alt=""
-        /></a>
-        <div class="messageContent">
-          <span class="messageName">sugar honey iced tea</span>
-          <p class="messageText">我也来爬个动态</p>
->>>>>>> 27e078c096e460b129b035266bdb95429b0c1a62
           <div class="messageTime">
             <span>1月4日 10:43</span>
             <span>
@@ -238,15 +43,10 @@
         </div>
       </li>
     </ul>
-<<<<<<< HEAD
-=======
-    
->>>>>>> 27e078c096e460b129b035266bdb95429b0c1a62
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import { getComment } from "../../api/topList";
 
 export default {
@@ -275,10 +75,6 @@ export default {
       console.log(this.commentList)
     },
   },
-=======
-export default {
-  name: "Comment",
->>>>>>> 27e078c096e460b129b035266bdb95429b0c1a62
 };
 </script>
 
@@ -289,13 +85,10 @@ export default {
   list-style: none;
 }
 
-<<<<<<< HEAD
 .fabiao {
   cursor: pointer;
 }
 
-=======
->>>>>>> 27e078c096e460b129b035266bdb95429b0c1a62
 .messageName {
   font-size: 14px;
 }

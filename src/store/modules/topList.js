@@ -12,6 +12,7 @@ export default {
         // 排行榜歌曲信息
         async getTopDetail({ commit }) {
             const topdata = await getTopDetail()
+            // console.log(topdata)
             commit('TOPDETAIL', topdata)
         },
 

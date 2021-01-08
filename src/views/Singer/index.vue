@@ -74,6 +74,9 @@
             :class="cullId === sex.id ? 'tag-list-item--select' : ''"
             >{{ sex.name }}</a
           >
+            <!-- >{{ list.name }}</a -->
+          >
+          <a href="###" class="tag-list-item">555</a>
         </div>
       </div>
     </div>
@@ -82,11 +85,17 @@
         <ul class="singer-list">
           <li class="singer-list-item" v-for="list in dirList" :key="list.id">
             <div class="singer-list-item-box">
-              <a href="###">
-                <img class="singer_list__pic" :src="list.picUrl" alt="" />
-              </a>
+              <router-link to="/singerlist">
+                <img
+                  class="singer_list__pic"
+                  :src="list.singer_avatar"
+                  alt=""
+                />
+              </router-link>
               <h3 class="singer-list-title">
-                <a href="###">{{ list.name }}</a>
+                <router-link to="/singerlist">{{
+                  list.singer_name
+                }}</router-link>
               </h3>
             </div>
           </li>
@@ -112,6 +121,13 @@
       @current-change="CurrentChange"
     >
     </el-pagination>
+    <div class="nav">
+      <strong class="current">1</strong>
+      <a href="###" class="page_index" data-index="2">2</a>
+      <a href="###" class="next-index" title="下一页" data-index="2">
+        <span>></span>
+      </a>
+    </div>
   </div>
 </template>
 
