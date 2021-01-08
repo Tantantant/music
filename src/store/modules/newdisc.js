@@ -15,19 +15,6 @@ export default {
 			};
 
 			state.newDisc = newDisc;
-
-			// let newDisc = newDiscList
-			// 	.map((disc) => {
-			// 		if (disc.id === id) {
-			// 			return {
-			// 				picUrl: disc.picUrl,
-			// 				name: disc.name,
-			// 				artistName: disc.artist.name
-			// 			};
-			// 		}
-			// 		return;
-			// 	})
-			// 	.filter((disc) => disc);
 		}
 	},
 

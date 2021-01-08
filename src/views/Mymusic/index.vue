@@ -3,7 +3,7 @@
     <div class="myMusicContainer">
       <div class="myMusicTop">
         <div class="imgContainer">
-          <img :src="profile.avatarUrl" alt="头像" />
+          <img v-lazy="profile.avatarUrl" alt="头像" />
         </div>
         <h1 class="name">
           <span>{{ profile.nickname }}</span>
@@ -63,7 +63,13 @@
           </el-table-column>
           <el-table-column prop="song.al.name" label="专辑" width="240">
           </el-table-column>
-          <el-table-column label="时长">3:20</el-table-column>
+          <!-- prop只能找MyMusicList里的数据 -->
+          <el-table-column prop="moment" label="时长">
+            <template v-slot="{ row }">
+              <!-- 插值语法只能拿data里的数据 -->
+              {{ moment(row.song.dt).format("mm:ss") }}
+            </template>
+          </el-table-column>
         </el-table>
       </div>
       <div class="downloadClient">查看更多内容，请下载客户端</div>
@@ -74,6 +80,7 @@
 
 <script>
 import { getMyMusic } from "../../api/myMusic";
+import moment from "moment";
 
 export default {
   name: "Mymusic",
@@ -81,6 +88,8 @@ export default {
     return {
       MyMusicList: [],
       profile: {},
+      // 把moment方法放到data里，让插值语法使用
+      moment: moment,
     };
   },
   async mounted() {

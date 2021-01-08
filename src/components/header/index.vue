@@ -69,7 +69,7 @@
         >
         <div class="headPortrait" v-else>
           <img
-            :src="profile.avatarUrl"
+            v-lazy="profile.avatarUrl"
             alt="头像"
             class="headPor"
             @click="myMusic"
@@ -80,7 +80,7 @@
             class="qqicon"
           />
           <div class="headSelect">
-            <img :src="profile.avatarUrl" alt="headPor" class="headPorTwo" />
+            <img v-lazy="profile.avatarUrl" alt="headPor" class="headPorTwo" />
             <span>{{ profile.nickname }}</span>
             <div class="signLogin" @click="signLogin">退出登录</div>
           </div>

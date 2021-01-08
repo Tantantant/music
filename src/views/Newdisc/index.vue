@@ -44,7 +44,7 @@
             @click="JumpSongInfo(newDisc.id)"
           >
             <div class="imgContainer">
-              <img :src="newDisc.picUrl" alt="歌曲图片" />
+              <img v-lazy="newDisc.picUrl" alt="歌曲图片" />
               <i class="playIcon"></i>
             </div>
             <a href="javascript:;" class="songname">{{ newDisc.name }}</a>

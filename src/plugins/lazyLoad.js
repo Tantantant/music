@@ -10,10 +10,10 @@
     将图片的src属性改成v-lazy  ::  <img v-lazy="carousel.imgUrl" />
 
 */
-import Vue from "vue"
-import VueLazyLoad from "vue-lazyload"
-import loading from "../assets/imags/loading.gif"
+import Vue from 'vue';
+import VueLazyLoad from 'vue-lazyload';
+import loading from '../assets/images/loading.gif';
 
 Vue.use(VueLazyLoad, {
-  loading: loading
-})
+	loading: loading
+});
