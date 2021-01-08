@@ -1,24 +1,10 @@
 import request from '../utils/request';
 
-export const getNewdiscNav = () => {
+//获取新碟数据
+export const getNewdiscInland = ({ area, limit, offset }) => {
 	return request({
 		method: 'GET',
-		url: `/getNewDisks`
+		url: `/album/new?area=${area}&limit=${limit}&offset=${offset}`
 	});
 };
 
-export const getNewdiscInland = ({ categoryId, page, limit }) => {
-	return request({
-		method: 'GET',
-		url: `/getSongLists?${categoryId}&${page}&${limit}`
-	});
-};
-
-
-
-// export const getNewdiscInland = () => {
-// 	return request({
-// 		method: 'GET',
-// 		url: '/music/api/recommend_new_song'
-// 	});
-// };

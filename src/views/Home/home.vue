@@ -33,44 +33,85 @@ export default {
 </script>
 
 <style lang="stylus" >
-.btn {
-  position: absolute;
-  top: 51px;
-  left: 20px;
-  border: 1px solid #c9c9c9;
-  color: #000;
-  width: 100px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-}
 
-.section-content {
-  position: relative;
-  top: 30px;
-}
+// .btn {
 
-.home {
-  width: 100%;
-  background: #ddd;
-  // background: red;
-}
+//   position: absolute;
 
-.section_inner {
-  margin: 0 auto;
-  overflow: hidden;
-  // background-color: #ddd;
-  width: 100%;
-  height: 100%;
-  min-width: 900px;
-  max-width: 1200px;
-  // background: url(img/bg_detail.jpg?max_age=2592000) 50% 0 repeat-x;
-}
+//   top: 51px;
 
-.home-hd {
-  font-size: 30px;
-  text-align: center;
-  padding-top: 4.16667%;
-  padding-bottom: 2%;
-}
+//   left: 20px;
+
+//   border: 1px solid #c9c9c9;
+
+//   color: #000;
+
+//   width: 100px;
+
+//   height: 40px;
+
+//   text-align: center;
+
+//   line-height: 40px;
+
+// }
+
+
+
+// .section-content {
+
+//   position: relative;
+
+//   top: 30px;
+
+// }
+
+
+
+// .home {
+
+//   width: 100%;
+
+//   background: #ddd;
+
+//   // background: red;
+
+// }
+
+
+
+// .section_inner {
+
+//   margin: 0 auto;
+
+//   overflow: hidden;
+
+//   // background-color: #ddd;
+
+//   width: 100%;
+
+//   height: 100%;
+
+//   min-width: 900px;
+
+//   max-width: 1200px;
+
+//   // background: url(img/bg_detail.jpg?max_age=2592000) 50% 0 repeat-x;
+
+// }
+
+
+
+// .home-hd {
+
+//   font-size: 30px;
+
+//   text-align: center;
+
+//   padding-top: 4.16667%;
+
+//   padding-bottom: 2%;
+
+// }
+
 </style>

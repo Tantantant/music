@@ -1,14 +1,18 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-import Songinfo from '../components/songInfo'
-import home from "../views/Home/home.vue"
+import Home from "../views/Home/home.vue"
+import SongInfo from '../views/songInfo';
 import Digital from "../views/Digital"
 import Singer from "../views/singer"
 import SingerList from "../views/singer-details"
 import TopList from '../views/mod_topList'
 import Newdisc from '../views/Newdisc'
 import PlayMusic from '../components/playMusic'
+
+
+
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -16,14 +20,14 @@ const router = new VueRouter({
     routes: [
         {
             path: "/",
-            component: home,
+            component: Home,
         },
         {
-            path: '/song',
-            component: Songinfo,
+            path: '/songinfo',
+            component: SongInfo,
         },
         {
-            path: "/mv_list",
+            path: "/digital",
             component: Digital,
         },
         {
@@ -35,23 +39,23 @@ const router = new VueRouter({
             component: SingerList
         },
         {
-            path:'/toplist',
-            component:TopList
+            path: '/toplist',
+            component: TopList
         },
         {
-            path:'/newdisc',
-            component:Newdisc
-        },   
+            path: '/newdisc',
+            component: Newdisc
+        },
         {
-            path:'/playmusic',
-            component:PlayMusic,
+            path: '/playmusic',
+            component: PlayMusic,
             meta: {
                 isFooterHide: true
             }
-        }   
+        },
     ],
     scrollBehavior() {
         return { x: 0, y: 0 }
     }
 })
-export default router
+export default router;
