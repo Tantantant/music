@@ -1,12 +1,29 @@
 import Vue from 'vue'
-import vueRouter from 'vue-router'
+import VueRouter from 'vue-router'
 
+import Songinfo from '../views/songInfo'
+import home from "../views/Home/home.vue"
+import Digital from "../views/Digital"
 import Singer from "../views/singer"
 import SingerList from "../views/singer-details"
 
-Vue.use(vueRouter)
-const router = new vueRouter({
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  mode: "history",  // history模式
   routes: [
+    {
+      path: "/",
+      component: home,
+    },
+    {
+      path: '/song',
+      component: Songinfo,
+    },
+    {
+      path: "/mv_list",
+      component: Digital,
+    },
     {
       path: '/singer',
       component: Singer
@@ -17,15 +34,4 @@ const router = new vueRouter({
     }
   ]
 })
-
-
 export default router
-
-/*  {
-   path: '/singer',
-   component: Singer
- },
- {
-   path: '/singerlist',
-   component: SingerList
- } */

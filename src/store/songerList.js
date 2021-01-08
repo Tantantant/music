@@ -2,31 +2,30 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import songerList from "../api/songerList"
+// import {getSongerList1} from "../api/songerList"
+import { getSongersList } from "../api/songerList"
 
 Vue.use(Vuex)
 
 const state = {
-  songerList: {}
+  songerList: [],
+  songer: [],
 }
 
 const getters = {}
 
 const actions = {
-  async getSongerList1 ({ commit }) {
-    const result = await songerList.getSongerList()
+  async getSonger ({ commit }) {
+    const result = await getSongersList()
     console.log(result)
-    if (result.status === 0) {
-      commit("GET_SONGERLIST1", result.data)
-    } else {
-      Message.error(result.message)
-    }
+    commit("GET_SONGERLIST1", result)
   }
 }
 
 const mutations = {
-  GET_SONGERLIST1 (state, songerList) {
-    state.songerList = songerList
+  GET_SONGERLIST1 (state, result) {
+    state.songerList = result.list.artists.slice(0, 10)
+    state.songer = result.list.artists.slice(10, 98)
   }
 }
 
