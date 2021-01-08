@@ -5,50 +5,12 @@
         <dt>巅峰榜</dt>
         <dd
           :class="index === indexs ? 'active' : ''"
-          @click="handleSelect(index)"
           v-for="(list, index) in topList"
           :key="list.id"
         >
           {{ list.name }}
         </dd>
       </dl>
-      <!-- <dl>
-        <dt>地区榜</dt>
-        <dd>内地榜</dd>
-        <dd>香港地区榜</dd>
-        <dd>台湾地区榜</dd>
-        <dd>欧美榜</dd>
-        <dd>韩国榜</dd>
-        <dd>日本榜</dd>
-      </dl>
-      <dl>
-        <dt>特色榜</dt>
-        <dd>网络歌曲榜</dd>
-        <dd>DJ舞曲榜</dd>
-        <dd>Q音快手榜</dd>
-        <dd>抖音排行榜</dd>
-        <dd>综艺新歌榜</dd>
-        <dd>影视金曲榜</dd>
-        <dd>国风热歌榜</dd>
-        <dd>说唱榜</dd>
-        <dd>电音榜</dd>
-        <dd>动漫音乐榜</dd>
-        <dd>游戏音乐榜</dd>
-        <dd>达人音乐榜</dd>
-        <dd>K歌金曲榜</dd>
-        <dd>腾讯音乐人原创榜</dd>
-      </dl>
-      <dl>
-        <dt>全球榜</dt>
-        <dd>美国公告榜</dd>
-        <dd>美国iTunes榜</dd>
-        <dd>韩国Melon榜</dd>
-        <dd>英国UK榜</dd>
-        <dd>日本公信榜</dd>
-        <dd>JOOX本地热播帮</dd>
-        <dd>香港KKBOX榜</dd>
-        <dd>YouTube音乐排行榜</dd>
-      </dl> -->
     </div>
   </div>
 </template>
@@ -65,21 +27,10 @@ export default {
   },
   async mounted() {
     const res = await getToplist();
-    // console.log("res", res);
     if (res.code === 200) {
-      // console.log(res.list)
       this.topList = res.list;
-      // console.log("toplist", this.topList);
+
     }
-  },
-  methods: {
-    handleSelect(index) {
-      this.indexs = index;
-      // const { id } = e.target.dataset;
-      // if (id == index) {
-      //   this.isShow = !this.isShow;
-      // }
-    },
   },
 };
 </script>

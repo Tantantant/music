@@ -61,7 +61,7 @@ export default {
     const res = await getComment();
     if (res.code === 200) {
       this.commentList = res.hotComments;
-      // console.log(this.commentList)
+     
     }
   },
   methods: {

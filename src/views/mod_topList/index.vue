@@ -125,7 +125,6 @@
 </template>
 
 <script>
-// import { getTopDetail } from "../../api/topList";
 import { mapState} from "vuex";
 import Guide from "../../components/guide";
 import Comment from "../../components/comment";
@@ -157,18 +156,12 @@ export default {
     // 跳转音乐详情
     toSongInfo(index) {
       const id = this.songInfoList[index].id;
-
-      //  console.log(id)
-      // this.$router.push('/song',)
-
       this.$router.push({ path: "/song", query: { id: id } });
     },
     // 播放
     playMusic(index, songId) {
-      // const id = this.songInfoList[index].copyrightId;
       this.$store.dispatch("getMusicUrls", songId);
       this.$store.commit("SONGINFO", songId);
-      // console.log(this.songInfoList)
       this.$router.push("/playmusic");
       this.$store.dispatch('getLyric',songId)
 
@@ -183,7 +176,6 @@ export default {
     // 添加
     add() {
       this.isShow = !this.isShow;
-      // console.log(this.isShow);
     },
     download1() {
       this.$confirm(

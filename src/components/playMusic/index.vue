@@ -77,14 +77,12 @@ export default {
   data() {
     return {
       isChecked: false,
-      lyrics: {},
     };
   },
   computed: {
     ...mapState({
       palySong: (state) => state.topList.palySong,
       musicInfo: (state) => state.topList.musicInfo,
-      lyric: (state) => state.topList.lyric,
     }),
   },
 
@@ -95,14 +93,6 @@ export default {
         console.log('i',i)
         this.lyrics.push(i);
       }
-    },
-    mounted() {
-      console.log(this.palySong)
-      this.lyrics = this.palySong
-      // this.Arrays();
-      // console.log(111);
-      // console.log(this.lyric);
-      console.log('lyric',this.lyrics)
     },
   },
   components: {
