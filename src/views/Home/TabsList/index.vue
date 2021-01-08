@@ -8,11 +8,14 @@
 </template>
 
 <script>
-// import Carousel from "../Carousel";
+// import Carousel from '../../../components/Carousel'
+import Map from '../../../components/map'
+
 export default {
-  name: "TabsList",
+  name: 'TabsList',
   components: {
     // Carousel,
+    Map,
   },
   data() {
     return {
@@ -44,5 +47,9 @@ export default {
 }
 .el-tabs__nav-wrap::after {
   width: 0% !important;
+}
+.swiper-container {
+  width: 600px;
+  height: 300px;
 }
 </style>

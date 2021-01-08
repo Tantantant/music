@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Message } from 'element-ui';
 
+<<<<<<< HEAD
 axios.defaults.timeout = 50000; //50s
 const instance = axios.create({
 	baseURL: `/api`
@@ -10,6 +11,15 @@ const instance = axios.create({
 });
 instance.interceptors.request.use((config) => {
 	return config;
+=======
+axios.defaults.timeout = 50000;//50s
+const instance = axios.create({
+  baseURL: `/api`
+  // Headers: {}
+});
+instance.interceptors.request.use((config) => {
+  return config;
+>>>>>>> 27e078c096e460b129b035266bdb95429b0c1a62
 });
 
 // 响应拦截器

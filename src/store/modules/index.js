@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 汇总所有vuex的模块
 import topList from './topList'
 import newdisc from './newdisc';
@@ -10,3 +11,11 @@ export default {
 
 
 
+=======
+import songerList from "./songerList"
+import classSong from "./classSong"
+export default {
+  songerList,
+  classSong
+}
+>>>>>>> 27e078c096e460b129b035266bdb95429b0c1a62

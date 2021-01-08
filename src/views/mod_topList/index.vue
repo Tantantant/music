@@ -393,6 +393,9 @@ export default {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
+}
+
+.songList_header {
   padding-left: 122px;
   height: 50px;
   line-height: 50px;

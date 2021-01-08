@@ -41,3 +41,6 @@ Vue.use(Option);
 Vue.use(Popover);
 Vue.prototype.$message = Message;
 Vue.prototype.$alert = MessageBox.alert;
+
+import Vue from 'vue';
+

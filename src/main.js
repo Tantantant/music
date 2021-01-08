@@ -16,6 +16,7 @@ import './styles/iconfonts/iconfont.css'
 import './mock/mockServe';
 import './styles/iconfont/iconfont.css';
 import './assets/font/iconfont.css';
+import "swiper/swiper-bundle.min.css";
 
 Vue.use(ElementUI);
 
